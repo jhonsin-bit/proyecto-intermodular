@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Proyecto Intermodular SMR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login-container">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p id="login-error" style="display: none; color: red;">Usuario o contraseña incorrectos</p>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-content" style="display: none;">
+
+    <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+        <a href="#sor">SOR</a>
+        <a href="#usuarios">Usuarios</a>
+        <a href="#cuotas">Cuotas</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#auditoria">Auditoría</a>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div>
+            <h1>Proyecto Intermodular SMR</h1>
+            <p>Guía paso a paso para implementar una infraestructura completa basada en Linux</p>
+            <p>19 de Marzo de 2026</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <article class="card">
+            <div>
+                <h2>01. Introducción y Objetivos</h2>
+            </div>
+            <div>
+                <p>Este proyecto tiene como objetivo principal implementar una infraestructura completa y robusta basada en Linux.</p>
+                <p>Los pilares fundamentales en los que nos basamos son:</p>
+                <ul>
+                    <li>Gestión centralizada y segura de usuarios.</li>
+                    <li>Prácticas avanzadas de seguridad.</li>
+                    <li>Digitalización integral de procesos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card" id="sor">
+            <div>
+                <h2>02. Instalación del Sistema Operativo</h2>
+            </div>
+            <div>
+                <p>Para comenzar nuestra infraestructura, preparamos un entorno de servidor base utilizando Ubuntu Server o Debian.</p>
+                <p>Pasos realizados:</p>
+                <ol>
+                    <li>Descarga de la imagen ISO oficial (Ubuntu Server / Debian).</li>
+                    <li>Instalación y configuración en una máquina virtual.</li>
+                    <li>Configuración de particiones de disco de forma óptima para servidores.</li>
+                </ol>
+            </div>
+        </article>
+
+        <article class="card" id="usuarios">
+            <div>
+                <h2>03. Gestión de Usuarios y Grupos</h2>
+            </div>
+            <div>
+                <p>Una correcta administración de usuarios es vital para la seguridad. Aquí se muestra cómo crear y administrar accesos limitando los privilegios.</p>
+                <p>Comandos principales utilizados:</p>
+                <div class="code">
+                    <code>sudo adduser [nombre_usuario]</code><br>
+                    <code>sudo groupadd [nombre_grupo]</code><br>
+                    <code>sudo usermod -aG [grupo] [usuario]</code>
+                </div>
+                <p>Este proceso garantiza que los nuevos usuarios sean creados con los permisos justos, asignando su directorio de inicio y forzando políticas de creación responsable.</p>
+            </div>
+        </article>
+
+        <article class="card" id="cuotas">
+            <div>
+                <h2>04. Configuración de Cuotas de Disco</h2>
+            </div>
+            <div>
+                <p>Para evitar que un usuario consuma todo el almacenamiento del servidor, implementamos un sistema de cuotas (Quotas).</p>
+                <p>Pasos clave:</p>
+                <ol>
+                    <li>Edición del archivo de configuración /etc/fstab para habilitar cuotas en la partición adecuada.</li>
+                    <li>Uso de quotacheck para escanear y generar los archivos base.</li>
+                    <li>Configuración individual mediante edquota.</li>
+                </ol>
+            </div>
+        </article>
+
+        <article class="card" id="tickets">
+            <div>
+                <h2>05. Implementación del Sistema de Tickets</h2>
+            </div>
+            <div>
+                <p>Digitalizamos la gestión de incidencias instalando un software de Helpdesk / Gestión de tickets. El software elegido podía ser GLPI, Odoo, u osTicket.</p>
+                <p>Flujo de trabajo:</p>
+                <ul>
+                    <li>Despliegue e instalación en el servidor Linux usando Apache/MariaDB.</li>
+                    <li>Configuración de la conexión a la base de datos (creación de usuario y DB).</li>
+                    <li>Creación de los usuarios administradores y técnicos para la gestión de tickets.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card" id="auditoria">
+            <div>
+                <h2>06. Auditoría de Seguridad y Resultados</h2>
+            </div>
+            <div>
+                <p>Tras montar la infraestructura, verificamos su resiliencia utilizando herramientas profesionales de pentesting y escaneo de red.</p>
+                <p>Se realizó un escaneo con Nmap y WPScan en la red local para verificar puertos abiertos, servicios en ejecución, y vulnerabilidades.</p>
+                <br>
+                <h3>¡Éxito en la Implementación!</h3>
+                <p>El sistema funciona correctamente, cumpliendo todos los objetivos iniciales trazados de seguridad, gestión y digitalización de procesos.</p>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>Documento Final - Proyecto Intermodular SMR</p>
+        <p>Realizado con tecnologías Open Source</p>
+    </footer>
+
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginContainer = document.getElementById('login-container');
+        const appContent = document.getElementById('app-content');
+        const loginError = document.getElementById('login-error');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (user === 'jhon' && pass === '123456') {
+                loginContainer.style.display = 'none';
+                appContent.style.display = 'block';
+                loginError.style.display = 'none';
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
