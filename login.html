@@ -1,0 +1,96 @@
+<!-- Declaración del tipo de documento HTML5 -->
+<!DOCTYPE html>
+<!-- Etiqueta html principal con idioma español -->
+<html lang="es">
+<head>
+    <!-- Configuración para leer tildes y ñ (UTF-8) -->
+    <meta charset="UTF-8">
+    <!-- Viewport para que la web se adapte a las pantallas de móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que se muestra en la pestaña del navegador -->
+    <title>Acceso del Sistema - EcoDigital Audit</title>
+    <!-- Importamos la fuente o tipo de letra 'Inter' desde Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Enlazamos nuestra hoja de estilos externa -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- HEADER: Cabecera superior que usamos de menú -->
+    <header class="navbar">
+        <!-- DIV para guardar y agrupar el texto del logo -->
+        <div class="logo-container">
+            <!-- Enlace del logotipo que te devuelve siempre a la página principal (Inicio) -->
+            <a href="index.html" class="logo-text">EcoDigital Audit</a>
+        </div>
+        <!-- NAV: Etiqueta semántica para definir un grupo de enlaces de navegación -->
+        <nav>
+            <!-- UL: Lista desordenada (los típicos puntos de toda la vida) -->
+            <ul class="nav-links">
+                <!-- LI: Elemento de la lista que lleva al inicio -->
+                <li><a href="index.html">Inicio</a></li>
+                <!-- LI: Elemento que lleva a la página de misión -->
+                <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
+                <!-- LI: Elemento hacia las sugerencias -->
+                <li><a href="sugerencias.html">Sugerencias</a></li>
+                <!-- LI: Elemento de contacto -->
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- DIV para aislar el botón de la derecha del todo -->
+        <div class="nav-actions">
+            <!-- Botón de Iniciar Sesión; ya estamos en ella pero sirve por si acaso. -->
+            <a href="login.html" class="btn btn-primary">Acceder</a>
+        </div>
+    </header>
+
+    <!-- MAIN: El contenedor principal del contenido de la página -->
+    <!-- Usamos la clase login-main para centrar todo en la pantalla verticalmente -->
+    <main class="login-main">
+        <!-- DIV cuadrado blanco flotante con sombras gracias a 'card-container'. Lo limitamos a tamaño 400. -->
+        <div class="card-container max-w-400 reveal login-card">
+            <!-- H2: Título secundario que coronará el formulario de entrada -->
+            <h2 class="text-center text-primary mb-2">Iniciar Sesión</h2>
+            
+            <!-- FORMULARIO con un id asignado 'login-form' para que nuestro JS lo atrape luego -->
+            <form id="login-form">
+                <!-- DIV de grupo de formulario para encasillar el primer campo de input -->
+                <div class="form-group">
+                    <!-- Etiqueta visual para que el usuario sepa qué escribir, asociada por el atribto 'for' -->
+                    <label for="email">Credencial ID (Email)</label>
+                    <!-- Input de tipo email que bloqueamos para que el navegador no te sugiera historial (autocomplete=off) -->
+                    <input type="email" id="email" class="form-control" autocomplete="off" required>
+                </div>
+                
+                <!-- DIV de grupo para agrupar el segundo bloque semántico (contraseña) -->
+                <div class="form-group">
+                    <!-- Etiqueta descriptiva para la contraseña -->
+                    <label for="password">Password de Encriptación ISO</label>
+                    <!-- Input text enmascarado (para que salgan puntitos ocultando la contraseña real) -->
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                
+                <!-- Párrafo que nace totalmente oculto 'display: none', que alertará de error de usuario incorrecto -->
+                <p id="error-msg" class="error-msg">Error: Acceso denegado, IP Registrada e incautada.</p>
+                
+                <!-- Botón clave para hacer SUBMIT, el Submit envía la información y arranca la maquinaria del click -->
+                <button type="submit" class="btn btn-primary w-100">Entrar al Sistema</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER: Etiqueta de pie de base. Cierra la web por abajo. -->
+    <footer>
+        <!-- DIV para el contenido en sí -->
+        <div class="footer-content">
+            <!-- Párrafo simple de Copyright falso -->
+            <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Importamos el script de comprobación general que carga el menú bonito superior -->
+    <script src="js/main.js"></script>
+    <!-- Importamos un script JS dedicado ÚNICAMENTE para que intermedie y proteja los datos de la contraseña de aquí arriba -->
+    <script src="js/login.js"></script>
+</body>
+</html>

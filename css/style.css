@@ -1,0 +1,378 @@
+/* ====== VARIABLES GLOBALES (PALETA GREEN IT) ====== */
+:root {
+    --primary-color: #0d9488; /* Turquesa oscuro - transmite tecnología y ecología */
+    --primary-hover: #0f766e; /* Turquesa más oscuro para estados activo/hover */
+    --secondary-color: #1f2937; /* Gris muy oscuro, casi negro, para contraste agresivo y profesional */
+    --accent-color: #34d399; /* Verde esmeralda vivo para detallitos o iconos */
+    
+    --bg-color: #f8fafc; /* Blanco sucio muy elegante para fondos (no rompe la vista) */
+    --white: #ffffff; /* Blanco puro para cajas sólidas o tarjetas */
+    --border-color: #e2e8f0; /* Gris súper clarito para las separaciones (bordes) */
+    
+    --text-main: #1e293b; /* Color principal de la letra, nunca negro puro 000 para no cansar la vista */
+    --text-muted: #64748b; /* Color grisáceo para subtítulos o texto secundario */
+}
+
+/* =========================================
+   1. RESET GENERAL (Reglas absolutas para toda la página)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* El tamaño de los elementos incluye padding y border por ley universal */
+    font-family: 'Inter', sans-serif; /* Familia de Google Fonts inyectada en HTML */
+}
+
+body {
+    background-color: var(--bg-color); /* Fondo relajante global predeterminado */
+    color: var(--text-main); /* Todas las letras heredan esto si no se declara otra cosa */
+    min-height: 100vh; /* Obliga al cuerpo a ocupar siempre el 100% como minimo, para empujar el footer abajo */
+    display: flex;
+    flex-direction: column; /* Apilamos las cajas madre de arriba a abajo (Header -> Main -> Footer) */
+    line-height: 1.6; /* Aire vital extra entre líneas de texto a nivel global */
+}
+
+/* Tipografía base fluida para separar textos que estaban pegados */
+p { margin-bottom: 1rem; }
+h1, h2, h3, h4 { margin-bottom: 0.8rem; line-height: 1.3; }
+ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.4rem; }
+
+/* =========================================
+   2. NAVEGACIÓN Y CABECERA (Estilo Cristal "Glassmorphism")
+   ========================================= */
+.navbar {
+    background: rgba(255, 255, 255, 0.85); /* Blanco base pero al 85% de opacidad para transparentar debajo */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Efecto difuminado cristalino ultra premium Apple/Windows 11 */
+    border-bottom: 1px solid var(--border-color); /* Una línea insignificante que corta el cristal del resto de la web */
+    display: flex; /* Activemos modelo caja de arena moderna en linea horizontal */
+    justify-content: space-between; /* Empuja el Logo la izq y botones a la der! Todo el vacio para el centro. */
+    align-items: center; /* Alineamos en gravedad todos al centro exacto vertical de la caja */
+    padding: 1rem 5%; /* Hueco vertical de 1rem, y 5% de margenes de seguridad izq/der. */
+    position: sticky; /* Cuando hagas scroll hacia abajo la barra caerá contigo por pantalla. */
+    top: 0; 
+    z-index: 100; /* Aseguramos que vuele por encima de cualquier otra maldita foto o texto */
+}
+
+/* Letras del logo superior izquierdo */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Tinta turquesa Green IT */
+    text-decoration: none; /* Te fulmino la rayita subrayada horrenda predeterminada */
+    letter-spacing: -0.5px; /* Comprimimos sutilísimamente la font para impacto corporativo */
+}
+
+/* Envoltorio de los links HTML de navegacion puros */
+.nav-links {
+    display: flex;
+    list-style: none; /* Fusilamos los puntos negros o disc de la lista HTML nativa */
+    gap: 2rem; /* Separamos 2 bloques standard espaciales entre eslabón y eslabón */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted); /* Color reposo (grisaceo humilde) */
+    font-weight: 600;
+    transition: color 0.3s ease; /* Cuando cambie su color al pasar raton encima que tarde 0.3 sg y sea efecto suavito 'ease'. */
+}
+
+/* Mágico poder: Cuando pises un link, cámbiame el color por favor. */
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   3. BOTONES (Herramientas cliqueables de interacción)
+   ========================================= */
+.btn {
+    padding: 0.6rem 1.5rem; /* Un pelin de cojin top/bot 0.6 rem, y de anchura lateral 1.5 rem */
+    border-radius: 8px; /* Cajas menos cuadriculadas tipo año 2000... algo redondito. */
+    font-weight: 600;
+    cursor: pointer; /* Fuerza la manita clickeando. */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Anima literalmente cualquier prop que modifiques en .btn:hover */
+    border: none;
+    display: inline-block; /* Flujo normal pero permitiendo medidas precisas padding sin enloquecer */
+}
+
+.btn-primary {
+    background-color: var(--primary-color); /* Chutazo de puro verde turquesa corporativo total */
+    color: var(--white); /* Texto ultrablanco inmaculado */
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover); /* Si pasas el raton se ensombrece el verde simulando un hundimiento. */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color); /* Este boton va por bordeado, no es de relleno. */
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-color); 
+    color: var(--primary-color);
+}
+
+/* =========================================
+   4. SECCIÓN HERO (PORTADA DE ATAQUE / LANDING IMPACT)
+   ========================================= */
+.hero {
+    text-align: center;
+    padding: 6rem 5% 4rem; /* Enorme hueco superior para destacar frente a la vista del humano nada más cargar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Todo separado 1.5 huecos. Sin pegotes. */
+}
+
+/* Las superletras bestiales del front */
+.hero h1 {
+    font-size: 3.5rem; /* Enorme 3 y medio standard de fuente raiz */
+    line-height: 1.2;
+    color: var(--text-main);
+    max-width: 800px;
+    letter-spacing: -1px;
+}
+
+/* Letritas destacadas intermedios de los header1 */
+.hero h1 span {
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.6; /* Aire vital entre lineas de texto. Respirar codigo. */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   5. CONTENEDORES INTERNOS (LAS 'TARJETAS' DE INFORMACIÓN FLOTANTES)
+   ========================================= */
+.card-container {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem; /* Grosor interior monstruoso para sensacion de tranquilidad IT */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra 10px vertical hiperdiluida 5% pa que levite sobre la web */
+    margin: 2rem 5%; /* Margen derecho e izquierdo de 5% de pantalla */
+    border: 1px solid rgba(0,0,0,0.02); 
+}
+
+/* Cajas restringidas (tipo el login para q no se estire el form al final del infinito) */
+.max-w-400 { max-width: 400px; margin-left: auto; margin-right: auto; }
+.max-w-800 { max-width: 800px; margin-left: auto; margin-right: auto; }
+
+
+/* =========================================
+   6. TIPOGRAFÍAS DE AYUDA RÁPIDA / UTILIDADES DE RESCATE (Helpers)
+   ========================================= */
+/* Permiten no tener que escribir style="..." en el HTML sucio y feo. Usamos esto directamente. */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-muted { color: var(--text-muted); }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.m-0 { margin: 0; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+.flex-center-gap {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Empuja las cosas del centro 1 huequito pafuera */
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   7. FORMULARIOS (Input Fields y Checkers)
+   ========================================= */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block; /* Obliga a la etiqueta a echar fuera toda linea para estar sola e independiente */
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Todas las cajas de relleno las encasquetamos asÍ */
+.form-control {
+    width: 100%; /* Engulle el padre al completo a nivel horizontal (dentro del card-container claro está) */
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease; /* Transition a fuego todo el rato */
+    font-family: inherit; /* Hereda de inter sanseriff, q a veces los navegadores en formularios inyectan la fuernte Times New Roman de pura locura */
+}
+
+/* Focuseo (Efecto clicazo mágico para el usuario) */
+.form-control:focus {
+    outline: none; /* Elimino la orla predeterminada del navegador Google */
+    border-color: var(--primary-color); /* Y pongo un borde mio precioso y controlado. */
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1); /* Efecto halo brillante para decir: eh ciego, estas clicando aqui ahora. */
+}
+
+/* =========================================
+   8. ANIMACIONES Y DECORACIONES FÍSICAS (Magia en crudo)
+   ========================================= */
+/* Animacion inicial inventanda por nosotros, la bautizamos fadeUp. Empezará invisible hundida un 20px, y al saltar se revelará bajando a opacidad de humano */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+    animation: fadeUp 0.8s ease-out forwards; /* 0.8 sgundos que traga esta magia */
+}
+
+
+/* Rejillas modulares del index CSS Grid System */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Si cabes en almenos 300 pixeles, ponte al lado, si no.. tirate al pozo p'abajo */
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.feature-card {
+    margin: 0; /* Machacamos la regla anterior porque es de grid hija */
+    padding: 2rem;
+    height: 100%;
+}
+
+
+/* =========================================
+   9. MODALES WINDOWS POPUP SUPERPUESTOS
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.4);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: none; /* NO existe hasta k js le diga 'flex' */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: fadeUp 0.3s ease-out forwards;
+}
+
+/* Estilo Footer del pie de pagina */
+footer { background-color: var(--text-main); color: var(--white); text-align: center; padding: 2rem; margin-top: auto; }
+
+/* =========================================
+   11. CLASES MODULARES COMPUESTAS (Para suprimir inline styles)
+   ========================================= */
+.bg-pattern-light { padding: 4rem 5%; background: var(--bg-color); }
+.card-clean { box-shadow: none !important; border: none !important; background: transparent !important; padding: 0 !important; }
+.flex-wrap-center { flex-wrap: wrap; gap: 1.5rem; text-align: center; }
+.card-mini { flex: 1; min-width: 150px; background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.icon-wrapper { color: var(--primary-color); margin-bottom: 0.8rem; display: flex; justify-content: center; }
+.card-mini-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.text-small { font-size: 0.85rem; }
+.features-grid-pt { padding-top: 2rem; }
+.text-italic-mb0 { font-style: italic; margin-bottom: 0; }
+.modal-title { font-size: 1.5rem; }
+.panel-bg { background: var(--bg-color); padding: 1.5rem; border-radius: 12px; }
+.flex-wrap-gap { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.info-panel { display: flex; gap: 1.5rem; align-items: center; background: var(--bg-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); flex-wrap: wrap; }
+.avatar-circle { width: 90px; height: 90px; min-width: 90px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; font-weight: bold; margin: 0 auto; box-shadow: 0 4px 10px rgba(13, 148, 136, 0.4); }
+.flex-basis-250 { flex: 1; min-width: 250px; }
+.title-m0-lg { margin: 0; font-size: 1.3rem; }
+.subtitle-bold { margin: 0.2rem 0; font-size: 0.95rem; font-weight: 700; color: var(--primary-color); }
+.text-m0-sm { font-size: 0.95rem; margin: 0; color: var(--text-muted); }
+
+.info-col { flex: 1; min-width: 200px; }
+.info-col-title { margin-top: 0; margin-bottom: 0.3rem; }
+.info-col-text { font-size: 0.9rem; margin: 0; }
+.panel-bordered { border-left: 5px solid var(--primary-color); border-right: 1px solid var(--border-color); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.sug-panel-bordered { text-align: left; border: 1px solid var(--border-color); }
+.sug-title { margin-top: 0; margin-bottom: 0.8rem; color: var(--text-main); }
+.sug-list { font-size: 0.95rem; margin-left: 1.5rem; line-height: 1.6; }
+.align-center { align-items: center; }
+.btn-sm-padding { padding: 0.4rem 1rem; font-size: 0.9rem; }
+.greeting-text { font-weight: 600; color: var(--primary-color); }
+.w-100 { width: 100%; }
+.chart-container-w { position: relative; height: 40vh; width: 100%; }
+.login-main { display: flex; justify-content: center; align-items: center; min-height: 80vh; }
+.login-card { width: 100%; margin: 0 1rem; }
+.error-msg { color: #ef4444; font-size: 0.85rem; margin-bottom: 1rem; display: none; }
+.checkbox-lbl { display: flex; gap: 0.5rem; font-weight: 400; align-items: center; }
+
+/* =========================================
+   10. MEDIA QUERIES (DISPOSITIVOS MÓVILES Y TABLETS)
+   ========================================= */
+/* Regla de oro del Responsive Design: Si la pantalla del usuario mide 768 píxeles o menos, aplica estos estilos machacando a los anteriores. */
+@media (max-width: 768px) {
+    /* El navbar sufre rediseño para apilar elementos verticalmente en vez de horizontales colisionando */
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    /* Disminuimos los espaciados del menú para caber en una pulgada tactil */
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap; /* Si se quedan sin sitio en el iPhone, saltan debajo */
+        justify-content: center;
+    }
+    
+    /* El hero-h1, gigante en escritorio, debe ser rebajado para no desbordar el borde del teléfono */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Apilamos los botones de Inicio, que estaban el uno al lado del otro horizontalmente, a una columna de 1 en 1, con anchura completa tactil */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%; /* Fuerza la expansión total en un pulgar (Usability Rule UX/UI) */
+        text-align: center;
+    }
+    
+    /* Reducimos el colchón de seguridad de las tarjetas y contenedores porque la pantalla móvil es escasa. */
+    .card-container, .features-grid {
+        margin: 1rem 3%;
+        padding: 1.5rem;
+    }
+    
+    .flex-between {
+        flex-direction: column; /* Lo que sea entre izquierda y derecha pasa a ser arriba y abajo. */
+        justify-content: center;
+        gap: 1rem;
+    }
+}

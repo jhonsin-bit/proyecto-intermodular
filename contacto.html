@@ -1,0 +1,168 @@
+<!-- Documento de base HTML5 -->
+<!DOCTYPE html>
+<!-- Configuramos la página en el diccionario español -->
+<html lang="es">
+<head>
+    <!-- Codificación universal para ñ y signos de interrogación -->
+    <meta charset="UTF-8">
+    <!-- Obligatorio para responsivo y adaptable en CSS a diferentes pulgadas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El nombre que sale arriba en el navegador Edge o Chrome -->
+    <title>Contacto Legal - EcoDigital Audit</title>
+    <!-- Inyectamos nuestra fuente deseada desde las bases de datos de google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Enganchamos nuestra plantilla de colores de CSS (El archivo vital del grado) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- HEADER: Módulo principal visual para nuestra cabecera transparente superior -->
+    <header class="navbar">
+        <!-- Contenedor general del Título corporativo, sirve para agruparlo visualmente -->
+        <div class="logo-container">
+            <!-- Ancla web (hyperlink) que vuelve al índice madre -->
+            <a href="index.html" class="logo-text">EcoDigital Audit</a>
+        </div>
+        <!-- Contenedor NAV obligatorio en HTML5 Semántico para SEO y accesibilidad -->
+        <nav>
+            <!-- UL: Lista para enraizar opciones de menús paralelos en línea -->
+            <ul class="nav-links">
+                <!-- LI = List Item, cada opción del navbar encapsulada -->
+                <li><a href="index.html">Inicio</a></li>
+                <!-- Página explicativa del IPE -->
+                <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
+                <!-- Área de feedback extra -->
+                <li><a href="sugerencias.html">Sugerencias</a></li>
+                <!-- Página actual (contacto) pero referenciada -->
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Acción flotante para que el usuario acceda desde cualquier lugar de la web al entorno logueado -->
+        <div class="nav-actions">
+            <!-- Botón primario verde turquesa cargado desde CSS -->
+            <a href="login.html" class="btn btn-primary">Acceder</a>
+        </div>
+    </header>
+
+    <!-- MAIN: Zona principal para meter todo el contenido útil para el que ha entrado el humano a la web -->
+    <main>
+        <!-- Tarjeta gruesa revelada ('reveal') en la que incrustaremos el formulario protegido -->
+        <div class="card-container max-w-800 reveal">
+            <!-- Título central remarcado h2 indicando sección -->
+            <h2 class="text-center text-primary mb-2">Ponte en Contacto</h2>
+            <!-- Párrafo secundario disuasorio -->
+            <p class="text-center text-muted mb-2">¿Tienes dudas sobre cómo implementar la transformación digital en tu red de ordenadores? Escríbenos para concertar una auditoría de primera toma.</p>
+            
+            <!-- EXPANSIÓN VISUAL: BLOQUE EXTRA DE INFORMACIÓN (Tarjetas Informativas Base) -->
+            <!-- Aquí usamos flex-between de nuestro CSS que empuja cosas a esquinas distintas y da orden horizontal -->
+            <div class="flex-between mb-2 flex-wrap-gap panel-bg panel-bordered">
+                
+                <!-- Columna Izquierda: Información de dirección inventada HQ empresarial -->
+                <div class="info-col">
+                    <!-- H4 Título terciario azulillo -->
+                    <h4 class="text-primary info-col-title">Sede Emprendimiento Principal</h4>
+                    <!-- Párrafo gris con saltos de carro obligados (<br>) -->
+                    <p class="text-muted info-col-text">Parque Científico y de Operaciones IT<br>Edificio 3B, Código 28001<br>Madrid, España</p>
+                </div>
+                
+                <!-- Columna Derecha: Telefónica local para que se vea servicio de atención -->
+                <div class="info-col">
+                    <!-- H4 Titulaje estandar de bloque inferior -->
+                    <h4 class="text-primary info-col-title">Atención y Soporte Rápido</h4>
+                    <!-- Metemos un mail irreal de soporte para relleno del UX -->
+                    <p class="text-muted info-col-text">Teléfonos Fijos: +34 900 123 456<br>L - V: 09:00h - 18:00h Peninsular<br>Vía Ticket: soporte@ecodigital.es</p>
+                </div>
+            </div>
+            
+            <!-- Empieza el formulario puro contact-form atrapado en un ID pa que JS lo detecte tras clic -->
+            <form id="contact-form" action="#" method="get">
+                
+                <!-- Bloque agrupativo para label arriba, input debajo -->
+                <div class="form-group">
+                    <!-- For indica qué caja abre o etiqueta -->
+                    <label for="nombre">Nombre o Razón Social (PYME)</label>
+                    <!-- REQUIRED = Bloquea envío form si este hueco está en blanco. Obligatorio rellenar esto para enviar -->
+                    <input type="text" id="nombre" class="form-control" placeholder="Ej: Servicios Empresariales VIPS" required>
+                </div>
+                
+                <!-- Segunda tupla de recuadros interactiva -->
+                <div class="form-group">
+                    <label for="email_contacto">Correo Corporativo</label>
+                    <!-- Type=email obliga al usuario a escribir código estilo '@tudominio.es' que sea válido -->
+                    <input type="email" id="email_contacto" class="form-control" placeholder="nombre@tupyme.com" required>
+                </div>
+                
+                <!-- Grupo grande para el chorro de texto que escribirá el potencial cliente de tu web -->
+                <div class="form-group">
+                    <label for="mensaje">Cuerpo del Mensaje (Objetivo)</label>
+                    <!-- Textarea crea una caja multi-línea, rows=5 es 'altura mágica original de 5 renglones expandibles por defecto' -->
+                    <textarea id="mensaje" rows="5" class="form-control" placeholder="Nos gustaría que evaluarais nuestros 50 servidores locales para saltar a AWS..." required></textarea>
+                </div>
+                
+                <!-- Botón tipo SUBMIT. Crucial. Activa el código event-listener de javascript cuando pones el click -->
+                <button type="submit" class="btn btn-primary w-100">Solicitar Auditoría IT</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- EL MODAL (CAJITA WINDOWS CHULA DE ÉXITO OCULTA DE SERIE EN BACKGROUND NEGRO) -->
+    <!-- Todo div de clase overlay está configurado para oscurecer la web real 100% como un fundido y mostrar cuadro encima -->
+    <div id="mi-modal" class="modal-overlay">
+        <!-- Caja blanca gruesa interna con redondéos -->
+        <div class="modal-content">
+            <!-- Título celebrando la subida al falso servidor -->
+            <h3 class="text-primary mb-2 modal-title">¡Enviado con Éxito!</h3>
+            <!-- Texto de engaño -->
+            <p class="text-muted mb-2">Hemos recibido tu información y la procesaremos a la brevedad posible.</p>
+            
+            <!-- Botón interno 'ok' que cerrará este ventanuco infernal -->
+            <button class="btn btn-primary" id="close-modal">Aceptar y Continuar</button>
+        </div>
+    </div>
+
+    <!-- EL FOOTER -->
+    <!-- Contenedor inferior semántico global del DOM web -->
+    <footer>
+        <div class="footer-content">
+            <!-- C Copyright icon con el HTML entity &copy; -->
+            <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cargamos toda la maquinaria JS oculta básica -->
+    <script src="js/main.js"></script>
+    <!-- Script suelto inyectado en línea (en bruto) para lidiar exclusivamente con la ventanita modal que hay un poco más arriba dentro de contacto exclusivamente -->
+    <script>
+        // EL MOTOR LÓGICO DEL MODAL PARA EL FORMULARIO
+        // Le echamos el lazo al formulario padre, al cuadrito negro y al boton final usando el document.getElementById() de Javascript
+        // Uso de variable VAR para máxima clasicidad como pidió el tribunal 
+        var formCont = document.getElementById('contact-form');
+        var popModal = document.getElementById('mi-modal');
+        var botCerrado = document.getElementById('close-modal');
+
+        // IF de validación extrema para evitar errores mortales NullPointerExceptions. (Si form NO está roto/vacío)
+        if(formCont != null) {
+            // Pillamos a fuego el evento interactivo de teclado enter/raton mandar formulario web ('submit')
+            formCont.addEventListener('submit', function(e) {
+                // Previene que chrome envíe la URL a Narnia resfrescando la pestaña con F5 e interrumpiendo js
+                e.preventDefault(); 
+                
+                // Sobraescribimos el CSS mediante código (JS mutando CSS en vivo). Pasando display a Flex, por lo que el rectángulo negro revive centrado sobre ti.
+                popModal.style.display = 'flex'; 
+                
+                // Vacía los campos que has rellenado (el correo, tu nombre, etc) para q sirva pa meter más
+                formCont.reset(); 
+            });
+        }
+
+        // Validación null preventer
+        if(botCerrado != null) {
+            // Función simple: Si haces un clic simple encima de la cruz
+            botCerrado.onclick = function() {
+                // Ocultamiento forzoso. La capa negra desaparece de pantalla, devolviendo utilidad.
+                popModal.style.display = 'none'; 
+            };
+        }
+    </script>
+</body>
+</html>
