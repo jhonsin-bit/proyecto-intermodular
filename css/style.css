@@ -44,6 +44,7 @@ li { margin-bottom: 0.4rem; }
    ========================================= */
 .navbar {
     background: rgba(255, 255, 255, 0.85); /* Fondo casi blanco pero transparente */
+    -webkit-backdrop-filter: blur(10px); /* Para que funcione también en Safari y iPhones antiguos */
     backdrop-filter: blur(10px); /* Esto hace el famoso efecto de que si hay imágenes debajo se vean borrosas, tipo Apple */
     border-bottom: 1px solid var(--border-color); /* Una rajita finita debajo */
     display: flex; /* Flexbox es dios para alinear cosas en línea recta */
