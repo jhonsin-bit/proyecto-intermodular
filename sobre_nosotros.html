@@ -1,85 +1,78 @@
-<!-- Etiqueta raíz fundamental del documento HTML (DOc type HTML5 universal) -->
+<!-- Esto siempre va aquí al principio. Es como decirle al ordenador: "Ey, que el código que viene detrás es HTML 5 moderno, prepárate". -->
 <!DOCTYPE html>
-<!-- Configuramos la página en idioma castellano predeterminado -->
+<!-- Pongo el idioma en español para que Google nos quiera y los traductores automáticos no se vuelvan locos -->
 <html lang="es">
 <head>
-    <!-- Declaramos codificación internacional obligatoria UTF-8 contra errores de renderizado en caracteres no-ingleses -->
+    <!-- Esto es súper importante para que las tildes de toda la vida y la 'ñ' no salgan como símbolos rotos -->
     <meta charset="UTF-8">
-    <!-- Declaramos escala Responsiva obligada de viewport frente a tablets y smartphones apple y android genéricos -->
+    <!-- El viewport es el truco clave del "responsive". Hace que si un profe abre la web desde un iPhone en clase, no vea una web minúscula, sino adaptada perfecta al ancho del móvil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- El nombre estático oficial que ve un buscador al indexar nuestro código y el usuario en ventana -->
+    <!-- El textito guapo que ves arriba en tu pestaña de Chrome mientras navegas -->
     <title>Misión, Visión y Valores - EcoDigital Audit</title>
-    <!-- Nos anclamos al CDN font delivery service de google tipografías sin marcos pesados -->
+    <!-- Me estoy enganchando directamente a los servidores de Google para robarles legalmente la fuente "Inter", que queda súper limpia -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Unificamos carga de reglas globales desde CSS central único (.css) garantizando cero inline estilos -->
+    <!-- Aquí llamo a mi hoja de estilos, el CSS, nuestro archivo de maquillaje de toda la página -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <!-- HEADER MARCO DE NAVEGACION -->
-    <!-- Elemento header en el que aplicaremos un barrido borroso semitransparente dictado en la clase .navbar -->
+    <!-- Monto mi barra superior de menú de toda la vida (eso sí, pilla el estilazo de cristal o 'navbar' del CSS que es brutal) -->
     <header class="navbar">
-        <!-- Sub-contenedor div flotado para marca verbal en izquierda -->
+        <!-- Un cajón solo para el nombre de mi marca, apartado a la izquierda -->
         <div class="logo-container">
-            <!-- Ancla href (híper enlace base HTML) -->
             <a href="index.html" class="logo-text">EcoDigital Audit</a>
         </div>
-        <!-- Etiquetas semánticas correctas <nav> ordenadas por el standard oficial web validator -->
+        <!-- En HTML 5 si vas a hacer un menú se usa <nav>, nada de andar con <div> a lo tonto, esto es más pro y semántico -->
         <nav>
-            <!-- Ul Lista madre envolvente albergando estructura botonera centralizada -->
+            <!-- Una típica lista desordenada (<ul>) donde cada punto es una puerta (<li>) a otra zona del Grado -->
             <ul class="nav-links">
-                <!-- Li encapsuladores de listado items navegacional puro base -->
                 <li><a href="index.html">Inicio</a></li>
-                <!-- Bloque donde introducimos el perfil emprendedor IPE Jhon Jessie Oficial (Actualmente activo) -->
+                <!-- El apartado clave de hoy, donde explicamos el IPE -->
                 <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
-                <!-- Puerta trasera a corrección bug-ticket reporting base -->
                 <li><a href="sugerencias.html">Sugerencias</a></li>
-                <!-- Puerta final a embudo de formularios de venta final o legalidad de protección datos -->
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         
-        <!-- Contenedor div separado en eje X a la derecha usando space-between del padre flex de navbar -->
+        <!-- Y en la esquina derecha del menú, mi botón para entrar al sistema -->
         <div class="nav-actions">
-            <!-- Llamador clase boton css renderizando botonera pseudo Apple/Modern Web Design verde puro base .primary -->
+            <!-- Pongo .btn-primary para que chupe directamente el color verde esmeralda y los bordes bonitos que le dimos en css base -->
             <a href="login.html" class="btn btn-primary">Acceder</a>
         </div>
     </header>
 
-    <!-- CONTENT BODY CONTAINER. Enrutando etiquetas HTML5 para validación sobresaliente estructural -->
     <main>
-        <!-- Cajas blancas de clase card-container flotadas. Limitador estructural máx 800 pixeles de CSS para prevenir estiramientos asimétricos -->
+        <!-- Un contenedor principal que frena a 800 píxeles para que en pantallas ultrawide gigantes el texto no parezca una línea finísima absurda -->
         <div class="card-container max-w-800 reveal">
-            <!-- Bloque superior Flex padre de CSS que pone título a la Izq y BotonTraductor a Der de forma alineada en cruz estática -->
+            <!-- Pongo este flexbox madre para alinear guapamente el titulo de la izquierda con el boton de traducir de la derecha... cara a cara! -->
             <div class="flex-between mb-2">
-                <!-- El h2, con .m-0 eliminando padding nativo, etiquetado mediante ID vital "page-title" en nuestro HTML para el script de inglés -->
+                <!-- Marco este título con ID 'page-title' porque le tengo preparada una trampa de traducción en mi archivito traduccion.js js-->
                 <h2 class="m-0" id="page-title">Nuestra Empresa</h2>
-                <!-- El famoso botón traductor clickeable atado al listener js -->
+                <!-- El botón que desencadena todo mi archivo de javascript con un miserable pinchazo manual click puro base html. -->
                 <button id="btn-translate" class="btn btn-secondary">Translate to English</button>
             </div>
             
-            <!-- CONTENEDOR 1: BLOQUE EXPLICACIÓN MISIÓN (IPE/EMPRESA EMPRENDIMIENTO) -->
-            <!-- Aplicando una separación .mb-2 margin-bottom CSS de seguridad abajo entre cajas -->
+            <!-- CONTENEDOR 1: Toda mi explicación de MISIÓN -->
+            <!-- Le doy un poquito de margen inferior con mb-2 temporal css base para respirar a tope, y uso css display flex puro base layout. -->
             <div class="content-section mb-2 reveal">
-                <!-- Atado internamente a traductor ES->EN (mision-title targeteado en JS traducción global) -->
+                <!-- Título atado con id text-primary por target ID manual 'mision-title' traduccion -->
                 <h3 id="mision-title" class="text-primary">Misión</h3>
-                <!-- Párrafo que describe los cimientos green de IT de nuestro servicio ficticio para el CFGM de cara al profesorado (Target js "mision-text")-->
+                <!-- Párrafo directo enganchado también por js traductor ID js hooker target 'mision-text' manual a texto  -->
                 <p id="mision-text">Nuestra misión es guiar a las pequeñas y medianas empresas en su proceso de transformación digital, asegurando que cada paso tecnológico se dé con una fuerte conciencia medioambiental. Auditamos los procesos existentes y proponemos soluciones ágiles y sostenibles.</p>
             </div>
 
-            <!-- CONTENEDOR 2: BLOQUE METAS A LARGOPLAZISMO CORPORATIVO (IPE VISIÓN ESTRATEGICA BASE) -->
+            <!-- CONTENEDOR 2: Lo que aspiro ser a 10 años vista! -->
             <div class="content-section mb-2 reveal">
-                <!-- Cabecera de tercer grado H3 atada por ID a motor JS EN -->
+                <!-- Lo mismo, un h3 por delante de la clase target ID puro js translation base -->
                 <h3 id="vision-title" class="text-primary">Visión</h3>
-                <!-- Texto descriptivo (Target JS "vision-text") -->
                 <p id="vision-text">Convertirnos en la firma de referencia en soluciones de Green IT, donde la tecnología no solo optimice los negocios sino que también regenere el entorno natural. Aspiramos a un futuro corporativo 100% digitalizado y cero emisiones.</p>
             </div>
 
-            <!-- CONTENEDOR 3: LISTADO VALORES ORGÁNICOS EMPRESARIALES DE STARTUP TECNOLÓGICA ECO -->
+            <!-- CONTENEDOR 3: Los famosos Valores tontos teóricos... -->
             <div class="content-section reveal">
-                <!-- Título Valores id trampa js base 3 -->
                 <h3 id="valores-title" class="text-primary">Valores</h3>
-                <!-- UL englobador para que la orden 'innerHTML' de nuestro Javascript re-escriba toda la caja (incluso los .li fuertes) metiendo todo en inglés dentro a saco -->
+                <!-- Aquí está la trampa. No meto IDs en cada list-item. Le clavo la id 'valores-list' a TODO EL LISTADO. 
+                     Así desde el javascript luego cojo e inyecto código puro innerHTML tirando abajo esto entero de base y metiendo lo inglés. -->
                 <ul id="valores-list" class="list-styled">
                     <li><strong>Sostenibilidad:</strong> Decisiones conscientes con el medio ambiente.</li>
                     <li><strong>Innovación:</strong> Uso de metodologías ágiles (Scrum, Kanban) y herramientas de última generación.</li>
@@ -88,52 +81,46 @@
                 </ul>
             </div>
 
-            <!-- ZONA DE GESTIÓN DE PROYECTOS ÁGIL (SCRUM Y KANBAN) - REQUISITO DEL MÓDULO INTERMODULAR IPE EXCELENCIA -->
+            <!-- BLOQUE EXTRA AGILE! (Explicando al tribunal profe cómo narices trabajamos los desarrolladores nivel base actual global puramente) -->
             <div class="content-section mb-2 reveal">
-                <!-- Titular agilismo de traduccion global "agile-title" -->
+                <!-- Cabecera simple enganchada a target id css title agile translation js hook... -->
                 <h3 id="agile-title" class="text-primary mb-2">Nuestra Metodología Ágil (Scrum & Kanban)</h3>
-                <!-- Panel de cajita contenedora gris con border de 1px simulando ventana secundaria (.info-panel CSS) -->
+                <!-- Una sombrita gris suave rectangular al fondo (info-panel) para destacar esta vaina nivel visual web... -->
                 <div class="info-panel">
                     
-                    <!-- Mitad izquierda de pantalla base flexible -->
+                    <!-- Mitad para Scrum. Uso flex-basis-250 para decir "Tú te quedas con 250px o estirate hasta mitad si sobra sitio de sobra ancho". -->
                     <div class="flex-basis-250">
-                        <!-- Título Scrum en h4. ID "scrum-title" -->
                         <h4 id="scrum-title" class="text-primary m-0">Scrum (Sprints de Desarrollo)</h4>
-                        <!-- Texto Scrum detallando el workflow técnico con daily standup ID "scrum-text" interno -->
+                        <!-- Texto largo parrafo explicativo de la reunion matinal daily base temporal iterativa de código... -->
                         <p id="scrum-text" class="text-muted text-small mt-1">Tanto a la hora de codificar esta web para el Grado como para las auditorías a nivel PYME, el equipo fragmenta el esfuerzo en <em>Sprints</em> temporales (ciclos de trabajo de 2 semanas). Exigimos una <strong>Daily Standup</strong> o reunión matinal diaria breve de 15 minutos exactos para exponer: qué resolvimos ayer, qué tocaremos hoy y qué obstáculos fatales bloquean el código. Esto nos inyecta una hiper-adaptabilidad frente a las caídas del servidor.</p>
                     </div>
                     
-                    <!-- Mitad derecha del modulo flex encajando Kanban a su misma altura y peso de Flex ratio 1 -->
+                    <!-- Otra mitad para Kanban. Se ponen juntas si cabe web base, sinó el flex las tumba móvil modo! -->
                     <div class="flex-basis-250">
-                        <!-- Títle Kanban ID Kanban-title js hook -->
                         <h4 id="kanban-title" class="text-primary m-0">Kanban (Flujo de Sistema Visual)</h4>
-                        <!-- Texto Kanban defendiendo limites WIP y eludeo de bottlenecks ID "kanban-text" -->
+                        <!-- Explicación del Work In Progress limit base kanban... -->
                         <p id="kanban-text" class="text-muted text-small mt-1">Gobernamos todo en un gran tablero visual subdividido por jerarquía (<em>To Do</em>, <em>In Progress</em>, <em>Testing</em> y <em>Done</em>). Gracias a arrastrar post-its o "Tickets" el equipo directivo localiza cuellos de botella inmediatamente y elude de forma estricta los síndromes por sobrecarga mental prohibiendo tener docenas de piezas a la vez (lo que llamamos fijar un límite férreo de <em>WIP: Work in Progress</em>).</p>
                     </div>
                 </div>
             </div>
 
-            <!-- ZONA EQUIPO FUNDADOR Y MARCA PERSONAL (ESPECIAL PARA EXPLICACIÓN DEL MÓDULO IPE Y EMPRENDIMIENTO CRÍTICO DEL AUTOR) -->
-            <!-- Reveal entra desde zona inferior rebotando hacia arriba a la carga de página (Fade up) -->
+            <!-- BLOQUE FINAL IPE: MI PROPIA MARCA! -->
             <div class="content-section reveal mt-2">
-                <!-- Titulo enganchador final "equipo-title" global js eng hook -->
+                <!-- ID de traduccion titular de mi propia marca de equipo targeteable base IPE...-->
                 <h3 id="equipo-title" class="text-primary mb-2">Nuestra Marca Personal y Equipo</h3>
                 
-                <!-- Panel base CSS (.info-panel) -->
                 <div class="info-panel">
                     
-                    <!-- DIV circulito diseñado mediante height/width = mismo numero de pixeles y border radius a 50% creando el efecto bola centrado con Flex .avatar-circle de nuestra lib css propia base-->
+                    <!-- Me marco una fotito falsa con las siglas (JJ) redondeada a lo apple puro css radius a cascoporro 50%... -->
                     <div class="avatar-circle">
                         JJ
                     </div>
                     
-                    <!-- Parte derecha flexada pegada al avatar flotante -->
+                    <!-- Descripción base de targeteo base explicandome a la derecha puro css flex layout base... -->
                     <div class="flex-basis-250">
-                        <!-- Título de autor con clase de letra gruesa tamaño libre titulo "equipo-nombre" js hook. -->
                         <h4 id="equipo-nombre" class="title-m0-lg">Jhon Jessie</h4>
-                        <!-- Role de profesionalidad falseada .subtitle CSS hook "equipo-rol" js traductor variable -->
                         <p id="equipo-rol" class="subtitle-bold">Consultor de Microinformática, Redes y CEO / Director Sostenible</p>
-                        <!-- Párrafo final masivo en pequeñito gris justificado defendiendo Green IT y objetivos de marca personal. variable "equipo-desc". -->
+                        <!-- Párrafo donde defiendo todo mi proyecto base corporativo de IPE. -->
                         <p id="equipo-desc" class="text-m0-sm">Impulsor líder de la plataforma <strong>EcoDigital Audit</strong>. Mi objetivo profesional clave dentro de este inmenso ecosistema de tecnología es simplificar macro red de servidores cloud a pequeña escala para dotar a las PYMES de gran poder. Mi marca personal defiende con uñas y dientes que multiplicar los beneficios de red y salvar el planeta siempre marchan ligados de la mano si actúas bajo la etiqueta auditable <em>Green IT</em>.</p>
                     </div>
                 </div>
@@ -142,17 +129,16 @@
         </div>
     </main>
 
-    <!-- FOOTER NATIVO ESTRICTO DEL CÓDIGO HTML DE BLOQUE-->
+    <!-- Mi cinta de cierre super inferior con mis derechos puros base... -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- CARGA DE ARCHIVOS EXTENSIÓN JAVASCRIPT DINÁMICOS (.JS) DEL SISTEMA OPERATIVO DE SERVIDOR FALSO -->
-    <!-- Cargamos ESPECIFICAMIENTE para esta página especial el enorme motor JS de traduccion gordo, justo antes de cerrar BODY pa no romper visual de pantalla nunca de forma prematura ni que dé Timeout el navegador-->
+    <!-- Aquí ocurre la pedazo de magia. Cargamos de golpe y pisotón base el js de traduccion entero! -->
     <script src="js/traduccion.js"></script>
-    <!-- Script core main de navbar login info (El que dice Hola Jhon si estas detectado en sistema Storage base local falso de nuestro chrome local) -->
+    <!-- Y luego dejo que carguen las chuminaditas residuales del menú como base (main.js local session target). -->
     <script src="js/main.js"></script>
 </body>
 </html>

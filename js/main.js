@@ -1,39 +1,38 @@
-// Archivo Javascript Controlador Maestro Global de Sesiones del usuario en activo local (Mantiene la puerta cerrada para los humanos ajenos al CEO).
+// Este archivo es el cerebrito global que hace que la web reaccione cuando te paseas por ella (comprobaciones de sesión de header).
 
-// Regla cardinal 1: Jamás leas un átomo de documento (DOM) si no ha terminado la página web de 'nacer' primero. AddEventListener del estado de carga nos defiende frente a errores de lectura o lag en internet de cables coaxiales del jurásico donde el javascript va primero antes del diseño final visual html real bruto.
+// Como siempre, bloqueamos cualquier intento de JS de arrancar hasta que toda la interfaz base (HTML) esté operativa en pantalla al completo.
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Escaneamos la Memoria Ram Oculta del navegador Web (Ej: Tu Edge/Safari de Windows) a ver si hay algún archivo chiquitito o variable permanente incauta llamada "usuario_logueado" (Que solo la crea nuestro script de login.js cuando la gente acierta '123456' y 'jhon...'). Guardamos la respuesta del navegador en una variable nuestra 'sessionCheck'.
+    // Abrimos el maletero del navegador del tipo que ha entrado, el Storage local, y comprobamos
+    // si ese chivato llamado "usuario_logueado" (que pusimos en login.js) existe y es True. Nos da su estado para seguir currando.
     var sessionCheck = localStorage.getItem('usuario_logueado');
     
-    // Capturamos la caja del enchufe derecho del Navegador del Header, esa caja o div agrupadora bautizada como "nav-actions", donde de normal ponía un triste botón solitario verde de 'Acceder'
+    // Identificamos el rincón de la derecha de nuestra franjita de menú superior donde van siempre nuestros botoncitos verdes "Acceder"
     var navActions = document.querySelector('.nav-actions');
 
-    // EXIGIMOS SEGURIDAD:
-    // ¿Me ha devuelto la máquina un 'true' (Verdadero, JhonJessie ha validado pase por Login) Y el botoncito de Log in no ha saltado errores por no existir en la página? ((!= null))
+    // SI Y SOLO SI, el colega tiene el pase activo (true en sessioncheck localStorage chivato true bool condition base local false falso)... Y SI POR SUPUESTO existe la esquina derecha superior de botones de la pagina 
     if (sessionCheck === 'true' && navActions != null) {
         
-        // ¡Magia Pura Invasiva! 
-        // Usamos '.innerHTML' para dinamitar atómicamente todo lo que hubiese escrito en el HTML entre medias de <div class="nav-actions"> ... </div>, e inyectar de golpe a portagayola y a la fuerza todo este código falso de saludo corporativo por pantalla, pisando letalmente al Botón anterior antiguo.
+        // Cogemos el interior .innerHTML de nuestra esquina derecha, borramos ese botón verde que decía "Acceder" (porque ya estás, carajito) y clavamos sin compasión todo este bloque falso de "Hola, Jhon".
         navActions.innerHTML = `
             <div class="flex-center-gap align-center">
                 <span class="greeting-text">Hola, Jhon</span>
-                <!-- Le ponemos ahora aquí a cambio un mini botoncito maleducado para sacarte del servicio local host -->
+                <!-- Te clavo ahora un botoncejo auxiliar secundario solo para sacarte de aquí luego -->
                 <button id="logout-btn" class="btn btn-secondary btn-sm-padding">Cerrar Sesión</button>
             </div>
         `;
 
-        // Ahora que nos hemos inventado inyectando en vivo este html mágico desde nuestro JS con el botón, capturamos ese puto botón nuevo recién nacido ('logout-btn') usando el comando var clásico y el cazador puro GetElement.
+        // Enganchamos a la memoria justo ese botón nuevecito recién cocinado que hace su primera aparición ("Cerrar Sesión") 
         var logoutBtn = document.getElementById('logout-btn');
         
-        // Si no dio errores fantasma... 
+        // Validación obligatorial, si el botón de ahí arriba funciona de verdad en el pantallazo visual..
         if (logoutBtn != null) {
             
-            // Programamos el Evento al vuelo ('onclick')! Cuando Jhon pulse sobre el maleducado boton de Salida Corporativa..
+            // ¿Qué pasa cuando Jhon pulse sobre Salida ("Click")?
             logoutBtn.onclick = function() {
-                // Sacamos la goma de borrar industrial pesada, y fulminamos del Navegador la cookie estancada en ram que dectaba a Jhon en todo el ordenador bloqueandolo... 
+                // Sencillo, barremos con lejía industrial desde localStorage del disco eliminando a la variable local de true pase...
                 localStorage.removeItem('usuario_logueado');
-                // Al hacerlo inmortal de nuevo (no-logueado), le echamos brutalmente de cabeza contra el escaparate index.html principal de invitados pobres, forzando un refresco total de la pagina purgado absoluto con el local href de windows browser interface básico local universal en web de JS puro antiguo sin framework ni rollos posmodernos absurdos react
+                // Al quedarte sin pase VIP (logueo caído), forzamos reinicio hacia nuestra home web (index base), que leerá que no lo tienes y te dejará de invitado de nuevo visual sin pase base..
                 window.location.href = 'index.html';
             };
         }

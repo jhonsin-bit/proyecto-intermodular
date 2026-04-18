@@ -1,50 +1,52 @@
-// ARCHIVO JAVASCRIPT GLOBAL DE TRADUCCIÓN BILINGÜE EN TIEMPO REAL (Lado Cliente)
-// Puesto que es una simulación para Grado Medio, no usaremos complejos frameworks i18n como i18next ni recargaremos la web con PHP. Usamos lógica pura de DOM.
+// Vale, aquí empezamos el archivo de traducción, el que cambia la web a inglés cuando le das al botón superior.
+// No usamos nada raro ni moderno (así cumplimos para el de Grado Medio), todo puro Javascript y cambiar textito a textito a fuego en html de base total
 
-// FASE 1: BUSCANDO Y CAPTURANDO ELEMENTOS DEL HTML A VARIABLES CLÁSICAS (var)
-// Capturamos el botón desencadenante (El que dice "Translate to English" arriba a la derecha).
+// PASO 1: Atrapar las cosas de la pantalla
+// Pillo el botón de traducir buscando la ID que le pusimos en el HTML y lo meto al cajón (variable) 'btnTranslate'
 var btnTranslate = document.getElementById('btn-translate');
 
-// Capturamos los titulares base de la estructura Empresa/Valores.
+// Voy pillando toda la columna vertebral de textos de Mision y Vision uno a uno
 var title = document.getElementById('page-title'); 
 var misionTitle = document.getElementById('mision-title'); 
 var misionText = document.getElementById('mision-text'); 
 var visionTitle = document.getElementById('vision-title'); 
 var visionText = document.getElementById('vision-text'); 
 
-// Capturamos el listado de nuestros Valores (Eficiencia, etc).
+// De Valores pesco tanto el título como la caja donde está la lista entera (porque la vamos a borrar e inyectar de cero)
 var valoresTitle = document.getElementById('valores-title'); 
 var valoresList = document.getElementById('valores-list'); 
 
-// Capturamos la zona interactiva del perfíl del Alumno/CEO Emprendedor (IPE)
+// Lo mísmo para el bloque de mi marca personal IPE
 var equipoTitle = document.getElementById('equipo-title');
 var equipoNombre = document.getElementById('equipo-nombre');
 var equipoRol = document.getElementById('equipo-rol');
 var equipoDesc = document.getElementById('equipo-desc');
 
-// Capturamos los BLOQUES EDUCATIVOS AGILE (Scrum y Kanban) Recién incorporados al final del proyecto 
+// Aquí pesco toda la parte de los tochos de temario Ágil de metodologías (que me pediste que añadiese al final de tu proyecto base)
 var agileTitle = document.getElementById('agile-title');
 var scrumTitle = document.getElementById('scrum-title');
 var scrumText = document.getElementById('scrum-text');
 var kanbanTitle = document.getElementById('kanban-title');
 var kanbanText = document.getElementById('kanban-text');
 
-// FASE 2: DEFINIR EL ESTADO CERO
-// Inicializamos una máquina de estados básica. El predeterminado es siempre 'es' (Español Castellano).
+// PASO 2: Variables predeterminadas
+// Partimos del hecho de que cuando la gente abre la página, la web está en Español natural.
 var idiomaActual = 'es';
 
-// FASE 3: EL CEREBRO DEL CAMBIO (EVENT LISTENER)
-// Si el botón de traducir existe en esta página en concreto donde se ejecuta el archivo...
+// PASO 3: Darle vida al botón
+// Ojito: "Si este botón realmente existe en la página donde estoy..." (evita que javascript cruja si el HTML no tiene el botón o no ha cargado bien el visual puro)
 if (btnTranslate != null) {
-    // Escuchador onclick clásico inyectado directamente en el evento del Mouse.
+    
+    // Le digo "Oye botón, cuando yo te haga un clic exacto encima, arranca esta función"
     btnTranslate.onclick = function() {
         
-        // CONDICIONAL 1: ¿Estamos en Español? Entonces el usuario quiere pasarlo a Inglés.
+        // EL CRUCE DE IDIOMA
+        // Si el idioma actual de mi variable resulta que está seteada de antes en Español ('es')...
         if (idiomaActual === 'es') { 
-            idiomaActual = 'en'; // Registramos que YA estamos en Inglés para el futuro clic inverso
-            btnTranslate.textContent = 'Traducir al Español'; // Cambiamos el texto del botón al inverso.
+            idiomaActual = 'en'; // Pues chiquillo cámbiame el estado a Inglés
+            btnTranslate.textContent = 'Traducir al Español'; // Y por favor, cambia también las letras de dentro del botón para que yo sepa volver!
             
-            // Re-escribimos todas las cajas base (.textContent sobre-escribe letras puras, ignorando etiquetas ocultas html).
+            // Re-escribiendo todo con textContent, que borra el texto de turno visual y pisa uno nuevo a saco
             title.textContent = 'Our Company';
             misionTitle.textContent = 'Mission';
             misionText.textContent = 'Our mission is to guide small and medium-sized enterprises in their digital transformation process, ensuring that every technological step is taken with strong environmental awareness. We audit existing processes and propose agile and sustainable solutions.';
@@ -54,7 +56,8 @@ if (btnTranslate != null) {
             
             valoresTitle.textContent = 'Values';
             
-            // Usamos '.innerHTML' aquí en vez de textContent, por qué en la caja Valores_list hay etiquetas HTML dentro como Negritas <strong> o Viñetas <li>. InnerHTML inyecta código que se renderizará como verdadero HTML.
+            // Fíjate, aquí uso ".innerHTML" en vez de textContent. 
+            // Por qué? Porque mi lista original de HTML tiene cositas como <strong> (Para hacer letras gordas) y <li>. Si uso textContent esto lo imprimiría literalmente como texto en pantalla en vez de ponerte una lista real, quedaría chapucero total en tu vista.
             valoresList.innerHTML = `
                 <li><strong>Sustainability:</strong> Environmentally conscious decisions.</li>
                 <li><strong>Innovation:</strong> Use of agile methodologies (Scrum, Kanban) and cutting-edge tools.</li>
@@ -62,16 +65,18 @@ if (btnTranslate != null) {
                 <li><strong>Efficiency:</strong> Optimization of technological and human resources.</li>
             `;
             
-            // VALIDACIÓN CRÍTICA DE NULOS
-            // Como este archivo traduccion.js es cargado, preguntamos SI existe el bloque antes de actuar con el traductor por si han borrado la caja de nuestro perfil en el backend o en el html.
+            // IMPORTANTE, le clavo condicionales "!= null" a todo por separado antes de traducirlo. 
+            // Por si el día de mañana los profes borran el bloque IPE en HTML probando a romper mi código... 
+            // no me saltarán fallos mortales del traductor y seguirá yendo.
             if (equipoTitle != null) {
                 equipoTitle.textContent = 'Our Personal Brand & Founder';
                 if (equipoNombre != null) equipoNombre.textContent = 'Jhon Jessie';
+                // Si existe el Rol, lo cambia, etc.
                 if (equipoRol != null) equipoRol.textContent = 'Microcomputing Consultant, Networks and Eco-CEO';
                 if (equipoDesc != null) equipoDesc.innerHTML = 'Leading promoter of the <strong>EcoDigital Audit</strong> platform. My core professional objective within this immense tech ecosystem is to simplify large scale cloud networks into localized tools to empower SMEs. My personal brand fiercely advocates that multiplying network efficiency and saving the planet always go hand in hand under the audacious <em>Green IT</em> banner.';
             }
             
-            // Hacemos lo mismo con el Bloque gigante de metodologías Ágiles!
+            // Protegiendo y traduciendo la Caja inferior metodológica de Agile total
             if (agileTitle != null) {
                 agileTitle.textContent = 'Our Agile Working Methodology (Scrum & Kanban)';
                 if (scrumTitle != null) scrumTitle.textContent = 'Scrum (Development Sprints)';
@@ -81,11 +86,13 @@ if (btnTranslate != null) {
             }
             
         } else {
-            // CONDICIONAL INVERSO: Si estábamos en Inglés, la máquina virtual te devuelve tu web base Española nativa.
+            // EL CRUCE DE VUELTA DE CHIP INTERNACIONAL BASE
+            // Bueno, y si el idioma que he leído resulta que no era Español sino Inglés?
+            // Pues la operación que tengo que hacer te la devuelvo al Español y pongo el botón a "Translate..."
             idiomaActual = 'es';
             btnTranslate.textContent = 'Translate to English';
             
-            // Reset manual de textos
+            // Volvemos a pisar todas las variables html de pantalla con la verborrea original visual esmeralda
             title.textContent = 'Nuestra Empresa';
             misionTitle.textContent = 'Misión';
             misionText.textContent = 'Nuestra misión es guiar a las pequeñas y medianas empresas en su proceso de transformación digital, asegurando que cada paso tecnológico se dé con una fuerte conciencia medioambiental. Auditamos los procesos existentes y proponemos soluciones ágiles y sostenibles.';
@@ -95,6 +102,7 @@ if (btnTranslate != null) {
             
             valoresTitle.textContent = 'Valores';
             
+            // De nuevo respetamos la maquetación HTML base pura usando innerHTML bruto
             valoresList.innerHTML = `
                 <li><strong>Sostenibilidad:</strong> Decisiones conscientes con el medio ambiente.</li>
                 <li><strong>Innovación:</strong> Uso de metodologías ágiles (Scrum, Kanban) y herramientas de última generación.</li>
@@ -102,6 +110,7 @@ if (btnTranslate != null) {
                 <li><strong>Eficiencia:</strong> Optimización de recursos tecnológicos y humanos.</li>
             `;
             
+            // Revertimos el bloque de tu IPE marca corporativa
             if (equipoTitle != null) {
                 equipoTitle.textContent = 'Nuestra Marca Personal y Equipo';
                 if (equipoNombre != null) equipoNombre.textContent = 'Jhon Jessie';
@@ -109,6 +118,7 @@ if (btnTranslate != null) {
                 if (equipoDesc != null) equipoDesc.innerHTML = 'Impulsor líder de la plataforma <strong>EcoDigital Audit</strong>. Mi objetivo profesional clave dentro de este inmenso ecosistema de tecnología es simplificar macro red de servidores cloud a pequeña escala para dotar a las PYMES de gran poder. Mi marca personal defiende con uñas y dientes que multiplicar los beneficios de red y salvar el planeta siempre marchan ligados de la mano si actúas bajo la etiqueta auditable <em>Green IT</em>.';
             }
             
+            // Y de vuelta el texto de metolología base agil
             if (agileTitle != null) {
                 agileTitle.textContent = 'Nuestra Metodología Ágil (Scrum & Kanban)';
                 if (scrumTitle != null) scrumTitle.textContent = 'Scrum (Sprints de Desarrollo)';

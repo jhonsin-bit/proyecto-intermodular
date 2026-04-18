@@ -1,43 +1,48 @@
-// Archivo de Javascript Básico: Lógica estricta de validación del formulario de Login local (Falso backend para Grado Medio).
+// Aquí empezamos la lógica detrás del login de prueba que nos montamos para el Grado.
 
-// 'document.addEventListener' le dice al navegador: "Espera a que todo el código HTML de la página haya sido descargado e interpretado ('DOMContentLoaded'), antes de enchufar mi código de programación, así no se romperá porque algo no esté cargado aún".
+// ¿Qué hace esto? document.addEventListener('DOMContentLoaded', ...) le dice al archivo:
+// "Ey, no corras ninguna línea hasta que toda la página web (el HTML) esté 100% cargada y lista".
+// Así evitamos fallos donde nuestro código intenta atrapar cajas del html que todavía no nacieron en la pantalla.
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Declaración Clásica de Variables 'var': Capturamos el formulario entero en memoria RAM buscando en el HTML algo que tenga el ID igual a 'login-form'.
+    // Primero, me guardo en la variable loginForm nuestro formulario entero que hay en el HTML.
     var loginForm = document.getElementById('login-form');
     
-    // Siempre usamos un detector 'IF' prevencional de seguridad. Si loginForm es distito a NULO (!= null), es decir, ESTOY en la página correcta que tiene formulario, entonces haz la magia. Si estoy en otra página, descansa.
+    // Comprobamos siempre si esa caja existe (si no es 'null').
+    // Esto es un salvavidas: si un profesor está viendo index.html e importa por error este archivo, no pegará crasheos.
     if (loginForm != null) {
         
-        // Le atamos un 'escuchador de eventos' (addEventListener) al formulario. Le decimos: "Quédate esperando eternamente hasta que alguien haga CLICK en el botón de Enviar ('submit')" de ese formulario.
+        // Cazo el momento exacto donde el humano pulsa "Enviar" en el logueo
         loginForm.addEventListener('submit', function(event) {
             
-            // LA LÍNEA MÁS VITAL FRONT-END: 'event.preventDefault()' cancela el recargo de Chrome que te sube arriba de la página, perdiendo el estado local. Paramos el tiempo y el envío HTTP a internet nativo, y controlamos el destino de forma manual nosotros con Código JS en frío puro.
+            // SUPER IMPORTANTE: event.preventDefault(). El formulario de html cuando das a enter quiere forzar 
+            // a que la web salte o recargue como posesa. Poniendo esto evitamos esa recarga y retenemos nosotros el control puro con javascript.
             event.preventDefault(); 
 
-            // Una vez cazado el Entero del envío, sacamos la Lupa. Capturamos en memoría física el bloque de Email y el de clave password buscando sus Identificadores desde el texto puro del HTML base nativo.
+            // Cazo las dos cajas donde el que usa mi app acaba de meter algo picando a mano en su teclado.
             var emailInput = document.getElementById('email');
             var passwordInput = document.getElementById('password');
-            // Y capturamos el párrafo de mensaje rojo feo de error criminal del inicio.
+            // Y atascamos el pequeño texto oculto del mensajillo rojo que asustaría si el user se equivoca de letritas.
             var errorMsg = document.getElementById('error-msg');
 
-            // Limpiamos los bloques. No nos interesa el bloque o caja de HTML, lo que nos interesa es LO QUE EL CRÁNEO DEL HUMANO ha picado con teclado en el input. Extraemos ese texto sagrado con ".value" al final.
+            // Sacamos un extracto directo real de "qué palabras introdujo el tío"
             var valMail = emailInput.value;
             var valPass = passwordInput.value;
 
-            // EL MOTOR DE DEFENSA CENTRAL CIBERNÉTICA
-            // "Si el mail introducido es exactamente (===) 'jhon@aurumdux.com' Y (&&) si la clave picada es exactamente (===) la sagrada clave '123456'"
+            // EL GRAN ACIERTO: Nuestra barrera de seguridad de chicha y nabo js base falsa :)
+            // Validamos a mano con "===" si el email introducido es idéntico a jhon, y si la contraseña es literalmente 123456
             if (valMail === 'jhon@aurumdux.com' && valPass === '123456') {
                 
-                // Si tienes suerte y has tecleado tú: Inyectamos en la Memoria Dura del Navegador Local de la Máquina del usuario (localStorage), incrustando una cookie permanente 'usuario_logueado' con bandera luz verde ('true').
+                // localStorage es brutal. Sirve para incrustarle a las entrañas del Google Chrome del que nos visita,
+                // un guardado interno o "chivato", dictaminando en true que JhonJessie ha validado pase VIP por el login
                 localStorage.setItem('usuario_logueado', 'true');
                 
-                // Teletransportación por Javascript forzando al navegador a ir corriendo a Index (Redirección nativa front)
+                // Mando a nuestro recién bautizado rey de vuelta al índice saltando al inicio con redirect front-end manual js .href web location local
                 window.location.href = 'index.html'; 
                 
             } else {
                 
-                // SI HAS FALLADO, castigado. Cogemos el Párrafito rojo de Letras y encriptamos la etiqueta display a 'block' para desdibujarlo de las sombras CSS, haciéndolo visible al 100% sobre el usuario infame en pantalla asustándolo de por vida.
+                // Oye, que fallaron, el mail o pasword no coincide, pues cambiamos el CSS block display ocultable feo y lo mostramos como amenaza!
                 errorMsg.style.display = 'block'; 
             }
         });

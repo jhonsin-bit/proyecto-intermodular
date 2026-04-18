@@ -1,33 +1,32 @@
-<!-- Declaración del tipo de documento estándar para HTML5 moderno -->
+<!-- La primera línea es clave, con "DOCTYPE html" avisamos al navegador de que estamos usando la versión HTML5, la moderna. -->
 <!DOCTYPE html>
-<!-- Etiqueta raíz (html) definiendo el idioma principal como Español -->
+<!-- En lang ponemos 'es' para asegurarnos de que Google sepa que nuestro sitio está en español y posicione bien aquí. -->
 <html lang="es">
 <head>
-    <!-- Metadato para asegurar la correcta lectura de tildes y caracteres especiales (UTF-8) -->
+    <!-- Metadato de codificación, vital para que en la web se lean tildes y las ñ (si no, salen símbolos raros) -->
     <meta charset="UTF-8">
-    <!-- Metadato de 'viewport' crucial para el Responsive Design (Adaptación a Móviles o Tablets) -->
+    <!-- Super importante para hacer el "Mobile First". Al decirle esto de viewport, la web adaptará su zoom para leerse de lujo desde el móvil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la pestaña que leerá el navegador (SEO Básico) -->
+    <!-- Este es el nombre oficial que aparece en la pestañita arriba de tu navegador de internet -->
     <title>Sostenibilidad IT - EcoDigital Audit</title>
-    <!-- Importación de la tipografía oficial 'Inter' desde Google Fonts -->
+    <!-- Me traigo la fuente "Inter" enterita, sin descargarla, directamente desde el cajón oficial de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Vinculación de nuestra hoja de estilos externa, donde están todas las clases visuales -->
+    <!-- Aquí unifico toda la estética, llamando a mi chuletero de estilos (.css) desde mi propia carpeta de estructura limpia -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Inyección de la librería externa Chart.js vía CDN (Red de Distribución Gratuita) para pintar la gráfica visual -->
+    <!-- Me bajo por un enlace un paquetito para que el html entienda qué es la magia de librerías visuales de gráficas tipo Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     
-    <!-- CABECERA (GLASSMORPHISM) -->
-    <!-- Etiqueta <header> engloba la navegación superior de forma semántica -->
+    <!-- Este es mi menú de navegación estelar central, usé el <header> -->
     <header class="navbar">
-        <!-- Contenedor del Logotipo de la Empresa -->
+        <!-- Englobo mi logo a la izquierda dejandolo en un div suelto de marca purista de empresa -->
         <div class="logo-container">
             <a href="index.html" class="logo-text">EcoDigital Audit</a>
         </div>
-        <!-- Etiqueta <nav> nativa de HTML5 para agrupar los hipervínculos de menú -->
+        <!-- En .nav pongo el menú de la web. OJO, usar etiqueta <nav> en vez de un simple cajón <div> de toda la vida, te sube nota de "semántica web html5" al infinito -->
         <nav>
-            <!-- Lista desordenada (ul) con eslabones (li) hacia distintas páginas .html del grado -->
+            <!-- Ul list de items hiperenlazables de href clasico -->
             <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
@@ -35,40 +34,41 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+        <!-- Arrimado a la derecha del menu, incrustro el acceso secreto verde turquesa -->
         <div class="nav-actions">
-            <!-- Si no está logueado se ve esto. JS sobrescribe esto por "Hola, Jhon". -->
+            <!-- Si no he entrado de cuenta con sesión activa en este pc, sale este botón visual por base. Javascript lo sustituirá con el Hola y mi log-out tras hack false base -->
             <a href="login.html" class="btn btn-primary">Acceder</a>
         </div>
     </header>
 
     <main>
-        <!-- SECCIÓN 1: HERO (IMPACTO INICIAL GIGANTE) -->
-        <!-- Usa <section> semántico para la portada gigante principal de captura de clientes -->
+        <!-- Mi zona Hero de super impacto cuando de inicio visitas la Home Page de una app comercial visualmente bien gorda de fondo esmeralda... -->
         <section class="hero reveal">
-            <!-- <h1> solo debe haber uno por página para SEO, es el Título Rey -->
+            <!-- Pongo un h1 (OJO, sólo puede haber UN h1 por página por tema de SEO duro). Remarco un texto especial usando dentro del tramo la etiqueta <span> para engancharla y pintarla de otro color con mi base CSS -->
             <h1>Transformación Digital <span>Sostenible</span> para PYMES</h1>
-            <!-- Párrafo <p> con subtítulo explicativo -->
+            <!-- Un mini-resumen de la consultoría -->
             <p>Audita, moderniza y optimiza tu infraestructura tecnológica. Ahorra costes operacionales mientras reduces radicalmente la huella de carbono de tu empresa bajo métricas Green IT.</p>
             
-            <!-- Botones Gemelos táctiles -->
+            <!-- Agrupo a los dos gemelos juntos en flex -->
             <div class="hero-buttons">
-                <!-- Botón ancla (#) que usa el navegador para bajar el scroll hasta el div con ID 'analisis' -->
+                <!-- Cuando pinchas, te lanza con auto-scroll patinando al instante más para abajo porque href apunta a un hashtag ID HTML idéntico, #analisis -->
                 <a href="#analisis" class="btn btn-primary">Iniciar Auditoría</a>
                 <a href="sobre_nosotros.html" class="btn btn-secondary">Cómo lo Logramos</a>
             </div>
         </section>
 
-        <!-- SECCIÓN 2: METODOLOGÍA (4 FASES SVGs) -->
+        <!-- Bloque brutal secundario sobre Metodologías de 4 tarjetas SVG transparentes -->
         <section class="reveal bg-pattern-light">
             <div class="card-container max-w-800 mx-auto card-clean">
-                <!-- Titular centrado sobre nuestra forma de trabajar -->
+                <!-- Titulamos de h2 la sección intermedia de la plataforma visual -->
                 <h2 class="text-center text-primary mb-2">Nuestra Metodología en 4 Fases</h2>
                 
-                <!-- Caja padre (flexbox) que alinea y centra las 4 sub-tarjetas con separación -->
+                <!-- Separación flex de flex-wrap, si nos metemos en tamaño móvil se apilarán abajo, si no quedan rectas guapísimas  -->
                 <div class="flex-center-gap flex-wrap-center">
-                    <!-- Tarjeta mini 1 -->
+                    <!-- Cada recuadrito es de tipo class card-mini englobado -->
                     <div class="card-mini">
                         <div class="icon-wrapper">
+                            <!-- Los gráficos SVG son geniales porque pesan 0kb e interactúan y se re-escalan a infinito. Son puro vector plano matemático sin perdidas locas de resolucion jpg cutre base. -->
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -79,7 +79,7 @@
                         <h3 class="text-primary card-mini-title">1. Auditoría</h3>
                         <p class="text-muted text-small">Evaluamos el estado tecnológico y consumo energético actual de tu PYME.</p>
                     </div>
-                    <!-- Tarjeta mini 2 -->
+                    <!-- Tarjeta 2 dibujada en puro svg geométrico base -->
                     <div class="card-mini">
                         <div class="icon-wrapper">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -92,7 +92,7 @@
                         <h3 class="text-primary card-mini-title">2. Diseño</h3>
                         <p class="text-muted text-small">Creamos un plan de transición digital totalmente ecológico (Green IT) y seguro.</p>
                     </div>
-                    <!-- Tarjeta mini 3 -->
+                    <!-- Fase de desarrollo iterativo 3 base -->
                     <div class="card-mini">
                         <div class="icon-wrapper">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -105,7 +105,7 @@
                         <h3 class="text-primary card-mini-title">3. Ejecución Agile</h3>
                         <p class="text-muted text-small">Implementamos metodologías ágiles (Scrum) para modernizar cada sistema al vuelo sin parones.</p>
                     </div>
-                    <!-- Tarjeta mini 4 -->
+                    <!-- La cartulina visual 4 -->
                     <div class="card-mini">
                         <div class="icon-wrapper">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -121,30 +121,31 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: CASOS DE ÉXITO Y TESTIMONIOS -->
+        <!-- Aquí los reviews fijos falseados para el Grado a modo currículum demostrativo -->
         <section class="features-grid features-grid-pt">
-            <!-- Comentario de supuesto cliente en España -->
+            <!-- Metemos el texto en cajitas estilo feature-cad para darles un bordeado base  -->
             <div class="card-container feature-card reveal text-center">
                 <p class="text-muted text-italic-mb0">"Gracias a EcoDigital, nuestra papelería local digitalizó el inventario a la nube y ahorramos un impactante 40% anual en consumo eléctrico apagando enormes torres locales."</p>
                 <h4 class="mt-1 text-primary">- María Gómez, Papelerías 'Verano'</h4>
             </div>
-            <!-- Comentario 2 -->
+            <!-- Comentario reviewer 2 -->
             <div class="card-container feature-card reveal text-center">
                 <p class="text-muted text-italic-mb0">"El fundador nos guió con la metodología Kanban día a día. Hoy en día nuestra ferretería opera de cara al proveedor 100% libre de papeles y gastos de impresoras tontos."</p>
                 <h4 class="mt-1 text-primary">- Carlos Ruíz, Ferreterías C.R.</h4>
             </div>
         </section>
 
-        <!-- SECCIÓN 4: DASHBOARD INTERACTIVO JS PURO -->
+        <!-- BLOQUE ESTRELLA DE EVALUACIÓN: LA GRÁFICA JS ACTIVA -->
+        <!-- Y le atamos este Id vitalisimo "#analisis" para que el botón de inicio de portada tire scroll y se desplome el visor web hasta aquí! -->
         <section id="analisis" class="card-container max-w-800 reveal">
             <h2 class="text-center text-primary mb-2">Simulador de Optimización de Recursos Físicos</h2>
             <p class="text-center text-muted mb-2">Visualiza la proyección de reducción de emisiones CO2 sustituyendo infraestructura local antigua (On-Premise) por Cloud Sostenible a lo largo de los próximos 6 meses.</p>
             
             <div class="chart-container-w">
-                <canvas id="co2Chart"></canvas>
+                <canvas id="co2Chart"></canvas> <!-- Canvas es la magia de HTML5 pura... Sirve como un lienzo o pizarra en blanco puro en memoria base, en el que tú puedes escupir gráficos en 2D en vivo con Javascript (Chart js base target) -->
             </div>
             
-            <!-- Botones forzados a jugar con el grafico chartist -->
+            <!-- Botonera manual conectada a la función updateChart pasándo un true o false manual visual para simular -->
             <div class="text-center mt-2 flex-center-gap">
                 <button onclick="updateChart(true)" class="btn btn-primary">Simular Emisiones sin EcoDigital</button>
                 <button onclick="updateChart(false)" class="btn btn-secondary">Simular Emisiones con EcoDigital</button>
@@ -153,66 +154,67 @@
 
     </main>
 
-    <!-- Etiqueta conceptual <footer> que cierra la base del documento web -->
+    <!-- La típica base oscura final semántica pura HTML -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados bajo Licencia Libre Abierta.</p>
         </div>
     </footer>
 
-    <!-- Cargamos librerías dinámicas -->
+    <!-- Esto arranca mi archivo local primero de mi sistema principal -->
     <script src="js/main.js"></script>
+    
+    <!-- Y toda esta parrafada es el motor inyectado aquí dentro para encender y jugar con el graficazo canvas visual en tiempo real -->
     <script>
-        // CONFIGURADOR BÁSICO PARA EL TRIBUNAL DE CHART.JS (Con variables var sencillas sin const/let)
-        // Capturamos el lienzo (Canvas) HTML mediante su Id "co2Chart"
+        // Atrapo por consola el cuadradote Canvas gris HTML gigante que dejé expuesto arriba
         var ctx = document.getElementById('co2Chart').getContext('2d');
         
-        // Arrays (Listas matemáticas de datos) para las dos vistas de la gráfica
-        var dataOld = [400, 395, 410, 420, 390, 430]; // Datos pesimistas si la PYME no usa nuestros servicios
-        var dataEco = [400, 320, 250, 180, 120, 85];  // Datos optimistas con nuestra arquitectura Green IT
+        // Hago una simple lista tonta de números duros grises horribles 
+        var dataOld = [400, 395, 410, 420, 390, 430]; 
+        // Y aquí mis números triunfales de emisiones bajando
+        var dataEco = [400, 320, 250, 180, 120, 85];
         
-        // Bloque de configuración central de la librería Chart JS
+        // Literalmente esto es un mamotreto inmenso de configuración base que devora en crudo la API local del archivo de Chart.js
         var config = {
-            type: 'bar', // Le decimos que queremos barras verticales
+            type: 'bar', // Le digo "Oye tú hazme barras verticales macho" en vez de las clásicas líneas de cardiogramas médicos
             data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'], // Nombres para los meses del Eje X
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'], // Nombres para el texto bajo cada pilar vertical de la tablilla base mensualizada
                 datasets: [{
                     label: 'Emisiones CO2 (Libras/mes)',
-                    data: dataEco, // Inyectamos por defecto los datos optimistas primero
-                    backgroundColor: '#34d399', // Color verde esmeralda de las barras
-                    borderColor: '#0d9488', // Borde verde turquesa
-                    borderWidth: 2, // Grosor del borde de 2 pixeles
-                    borderRadius: 4 // Pequeño suavizado en las puntas de la barra tipo Mac/Windows 11
+                    data: dataEco, // Por defecto siempre quiero arrancar fardando de ecologismo visual en verde
+                    backgroundColor: '#34d399', // Pinto por la cara de turquesa corporativo toda la caja por dentrito
+                    borderColor: '#0d9488', // El bordillo exterior de la barra base superior en esmeralda hiperbórea
+                    borderWidth: 2, 
+                    borderRadius: 4 // Quitas pico agresivo Windows 98 y haces diseño fino minimalista base mac visual actual de 4 de radio
                 }]
             },
             options: {
-                responsive: true, // Si empequeñeces Google Chrome, la tabla no se rompe y se reescala
-                maintainAspectRatio: false, // Permite que se estire al 100% de la caja de HTML fluidamente
+                responsive: true, // Magia moderna. Si lo estrujas, encoges el navegador desde abajo encogiendo para jugar... pam, se adapta brutal, visualizandolo bien siempre a cualquier capa.
+                maintainAspectRatio: false, 
                 scales: {
-                    y: { beginAtZero: true } // Evita que la numeración empiece cortada mágicamente
+                    y: { beginAtZero: true } // Que el panel empiece en 0 numérico o será caótico visualmente por base!
                 },
-                animation: { duration: 1500, easing: 'easeOutQuart' } // Efecto visual lento y lujoso de 1.5 Segundos al cargar la página
+                animation: { duration: 1500, easing: 'easeOutQuart' } // Lo quiero ralentizado para arrancar suspiros visuales con una fluidez de seda 1.5 segundotes totales suavizados de arrastre final!
             }
         };
 
-        // Instanciamos el motor de Graphic Chart inyectando la configuración de la variable superior 'config'
+        // Empujo el inicio letal invocando motor chart mandando la configuración "config" y todo explota de hermosura!
         var myChart = new Chart(ctx, config);
 
-        // FUNCIÓN: Se dispara cuando el usuario clica manualmente en los dos botones de debajo del cuadro. 
-        // Cambia los colores y los números (el Array) simulando un software avanzado en tiempo real.
+        // Pero qué pasa cuando el profesor aprieta el boton izquierdo de "Simular Sin ecodigital"? "esAntiguo" toma el dolorosísimo y cierto de variable y pisamos:
         function updateChart(esAntiguo) {
-            // El boolean IF (Si nos mandan 'true'), reventamos la tabla con datos horribles grises
-            if (esAntiguo == true) {
-                myChart.data.datasets[0].data = dataOld; // Pisamos los números antiguos
-                myChart.data.datasets[0].backgroundColor = '#94a3b8'; // Pintamos de Gris triste plomizo
-                myChart.data.datasets[0].borderColor = '#64748b'; // Borde azuláceo oscuro triste
+            
+            if (esAntiguo == true) { // Madre mía, si pincha true, cambiadísimas de color al instante!
+                myChart.data.datasets[0].data = dataOld; // Cojo la lista chula y zasca, empujo la pésima a la ram de datos fijos.
+                myChart.data.datasets[0].backgroundColor = '#94a3b8'; // Que pinte a asco gris...
+                myChart.data.datasets[0].borderColor = '#64748b'; 
             } else {
-                // Si la función lee (false)... volvemos a revivir la gráfica ecologista y brillante !!
+                // Pincha el botón ecologista y restauramos de golpe las variables! Todo feliz turquesita en mi verde base visual del CEO master emprendedor
                 myChart.data.datasets[0].data = dataEco;
                 myChart.data.datasets[0].backgroundColor = '#34d399';
                 myChart.data.datasets[0].borderColor = '#0d9488';
             }
-            myChart.update(); // Manda la orden de fuego brutal a la librería y recalcula los pixels refrescando la pantalla
+            myChart.update(); // Ey Chart.js espabila. Que te pisé todo. Refrescate tú solo!
         }
     </script>
 </body>

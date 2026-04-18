@@ -1,166 +1,142 @@
-<!-- Documento de base HTML5 -->
+<!-- Aquí vamos con la página de contacto de rigor -->
 <!DOCTYPE html>
-<!-- Configuramos la página en el diccionario español -->
-<html lang="es">
+<html lang="es"> <!-- Mi web es en Español (es) de base, para que los buscadores como Edge/Google sepan qué idioma leer -->
 <head>
-    <!-- Codificación universal para ñ y signos de interrogación -->
+    <!-- Esto salva las vidas con la "ñ" y los típicos simbolitos raros españoles y las tildes -->
     <meta charset="UTF-8">
-    <!-- Obligatorio para responsivo y adaptable en CSS a diferentes pulgadas -->
+    <!-- El pedazo de truco moderno para encogerla sin destruir mis cajas si me miran desde un Samsung o iPhone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- El nombre que sale arriba en el navegador Edge o Chrome -->
+    <!-- La etiqueta guay que te dice el nombre de mi pestañita web arriba -->
     <title>Contacto Legal - EcoDigital Audit</title>
-    <!-- Inyectamos nuestra fuente deseada desde las bases de datos de google Fonts -->
+    <!-- Me bajo por un tubito invisible mis fuentes guapas desde Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Enganchamos nuestra plantilla de colores de CSS (El archivo vital del grado) -->
+    <!-- Unifico tooodos mis estilos con un chuletero externo, el pedazo de archivo style.css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <!-- HEADER: Módulo principal visual para nuestra cabecera transparente superior -->
+    <!-- Monto mi preciosa barra de menú superior. Le incrusto 'navbar' para darle su estética blanca de cristal -->
     <header class="navbar">
-        <!-- Contenedor general del Título corporativo, sirve para agruparlo visualmente -->
         <div class="logo-container">
-            <!-- Ancla web (hyperlink) que vuelve al índice madre -->
+            <!-- Esto literalmente te devuelve al inicio. Un click sobre mi logo corporativo. -->
             <a href="index.html" class="logo-text">EcoDigital Audit</a>
         </div>
-        <!-- Contenedor NAV obligatorio en HTML5 Semántico para SEO y accesibilidad -->
+        
+        <!-- Etiqueta nav porque es infinitamente más pro y válido que hacer cajitas de div guarras de menú local. -->
         <nav>
-            <!-- UL: Lista para enraizar opciones de menús paralelos en línea -->
             <ul class="nav-links">
-                <!-- LI = List Item, cada opción del navbar encapsulada -->
+                <!-- Pongo mis botones de ir saltando entre áreas del trabajo local de html index grado superior -->
                 <li><a href="index.html">Inicio</a></li>
-                <!-- Página explicativa del IPE -->
                 <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
-                <!-- Área de feedback extra -->
                 <li><a href="sugerencias.html">Sugerencias</a></li>
-                <!-- Página actual (contacto) pero referenciada -->
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <!-- Acción flotante para que el usuario acceda desde cualquier lugar de la web al entorno logueado -->
+        
+        <!-- Y tiro el botonaco guapo verde de login pa que me deje aislarlo a la derecha del todo con css -->
         <div class="nav-actions">
-            <!-- Botón primario verde turquesa cargado desde CSS -->
+            <!-- La clase btn btn-primary le mete un esmeralda macizo css puro y curvos bordes redondeados super estetic... -->
             <a href="login.html" class="btn btn-primary">Acceder</a>
         </div>
     </header>
 
-    <!-- MAIN: Zona principal para meter todo el contenido útil para el que ha entrado el humano a la web -->
     <main>
-        <!-- Tarjeta gruesa revelada ('reveal') en la que incrustaremos el formulario protegido -->
+        <!-- Cajooota gorda madre para meter la tablatura de contacto de la consultora. .reveal la enciende flotando suave de abajo a arriba, una pasada visual. -->
         <div class="card-container max-w-800 reveal">
-            <!-- Título central remarcado h2 indicando sección -->
             <h2 class="text-center text-primary mb-2">Ponte en Contacto</h2>
-            <!-- Párrafo secundario disuasorio -->
             <p class="text-center text-muted mb-2">¿Tienes dudas sobre cómo implementar la transformación digital en tu red de ordenadores? Escríbenos para concertar una auditoría de primera toma.</p>
             
-            <!-- EXPANSIÓN VISUAL: BLOQUE EXTRA DE INFORMACIÓN (Tarjetas Informativas Base) -->
-            <!-- Aquí usamos flex-between de nuestro CSS que empuja cosas a esquinas distintas y da orden horizontal -->
+            <!-- Aquí abro una sección extra partida a la mitad en paralelo (flex-between) para fardar de datos de contacto falso... -->
             <div class="flex-between mb-2 flex-wrap-gap panel-bg panel-bordered">
                 
-                <!-- Columna Izquierda: Información de dirección inventada HQ empresarial -->
+                <!-- Si se empujan en un movil... pues se van saltando para abajito en cajones sueltos .info-col -->
                 <div class="info-col">
-                    <!-- H4 Título terciario azulillo -->
                     <h4 class="text-primary info-col-title">Sede Emprendimiento Principal</h4>
-                    <!-- Párrafo gris con saltos de carro obligados (<br>) -->
+                    <!-- Meto saltos de linea feos peros super hiper efectivos (br) para dar saltitos manuales rápidos... -->
                     <p class="text-muted info-col-text">Parque Científico y de Operaciones IT<br>Edificio 3B, Código 28001<br>Madrid, España</p>
                 </div>
                 
-                <!-- Columna Derecha: Telefónica local para que se vea servicio de atención -->
                 <div class="info-col">
-                    <!-- H4 Titulaje estandar de bloque inferior -->
                     <h4 class="text-primary info-col-title">Atención y Soporte Rápido</h4>
-                    <!-- Metemos un mail irreal de soporte para relleno del UX -->
                     <p class="text-muted info-col-text">Teléfonos Fijos: +34 900 123 456<br>L - V: 09:00h - 18:00h Peninsular<br>Vía Ticket: soporte@ecodigital.es</p>
                 </div>
             </div>
             
-            <!-- Empieza el formulario puro contact-form atrapado en un ID pa que JS lo detecte tras clic -->
+            <!-- Batería antiaérea principal: El formulario final del trabajo contact-form -->
             <form id="contact-form" action="#" method="get">
                 
-                <!-- Bloque agrupativo para label arriba, input debajo -->
                 <div class="form-group">
-                    <!-- For indica qué caja abre o etiqueta -->
+                    <!-- For indica qué cajita abre cada letra label para los lectores de invidentes, base HTML y UX! -->
                     <label for="nombre">Nombre o Razón Social (PYME)</label>
-                    <!-- REQUIRED = Bloquea envío form si este hueco está en blanco. Obligatorio rellenar esto para enviar -->
                     <input type="text" id="nombre" class="form-control" placeholder="Ej: Servicios Empresariales VIPS" required>
                 </div>
                 
-                <!-- Segunda tupla de recuadros interactiva -->
                 <div class="form-group">
                     <label for="email_contacto">Correo Corporativo</label>
-                    <!-- Type=email obliga al usuario a escribir código estilo '@tudominio.es' que sea válido -->
+                    <!-- Ojito.. type=email obliga por ley HTML sin currar yo de css ni javascript.. que el tio meta algo valio que contenga siempre la maldita arroba base @ falso-->
                     <input type="email" id="email_contacto" class="form-control" placeholder="nombre@tupyme.com" required>
                 </div>
                 
-                <!-- Grupo grande para el chorro de texto que escribirá el potencial cliente de tu web -->
                 <div class="form-group">
                     <label for="mensaje">Cuerpo del Mensaje (Objetivo)</label>
-                    <!-- Textarea crea una caja multi-línea, rows=5 es 'altura mágica original de 5 renglones expandibles por defecto' -->
+                    <!-- Textarea, es el dios de las re-dimensiones a pulso si necesitas explicarle llorando que todo peta...  -->
                     <textarea id="mensaje" rows="5" class="form-control" placeholder="Nos gustaría que evaluarais nuestros 50 servidores locales para saltar a AWS..." required></textarea>
                 </div>
                 
-                <!-- Botón tipo SUBMIT. Crucial. Activa el código event-listener de javascript cuando pones el click -->
+                <!-- Metámosle nitro base al botonaco del submite... -->
                 <button type="submit" class="btn btn-primary w-100">Solicitar Auditoría IT</button>
             </form>
         </div>
     </main>
 
-    <!-- EL MODAL (CAJITA WINDOWS CHULA DE ÉXITO OCULTA DE SERIE EN BACKGROUND NEGRO) -->
-    <!-- Todo div de clase overlay está configurado para oscurecer la web real 100% como un fundido y mostrar cuadro encima -->
+    <!-- TRONCO OCULTO DEL MODAL: Un panel fantasma que carga desde siempre en la web escondido por javascript o css hasta su aparicion divina a peticion -->
     <div id="mi-modal" class="modal-overlay">
-        <!-- Caja blanca gruesa interna con redondéos -->
+        <!-- Es esta cajita fina central cuadrada -->
         <div class="modal-content">
-            <!-- Título celebrando la subida al falso servidor -->
             <h3 class="text-primary mb-2 modal-title">¡Enviado con Éxito!</h3>
-            <!-- Texto de engaño -->
             <p class="text-muted mb-2">Hemos recibido tu información y la procesaremos a la brevedad posible.</p>
             
-            <!-- Botón interno 'ok' que cerrará este ventanuco infernal -->
+            <!-- Este botoncete va atar luego un asesinato de display falso a la cajeta y esconderse corriendo -->
             <button class="btn btn-primary" id="close-modal">Aceptar y Continuar</button>
         </div>
     </div>
 
-    <!-- EL FOOTER -->
-    <!-- Contenedor inferior semántico global del DOM web -->
+    <!-- Cierre super basiquisísimo de página... -->
     <footer>
         <div class="footer-content">
-            <!-- C Copyright icon con el HTML entity &copy; -->
             <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Cargamos toda la maquinaria JS oculta básica -->
+    <!-- Mi menú central falso check de local storage log-out main login hook function nav main.js... -->
     <script src="js/main.js"></script>
-    <!-- Script suelto inyectado en línea (en bruto) para lidiar exclusivamente con la ventanita modal que hay un poco más arriba dentro de contacto exclusivamente -->
+    
+    <!-- Y toda la parrafada del pop-up del falso contacto en puro raw JS js local bruto sin archivo propio por perrería  -->
     <script>
-        // EL MOTOR LÓGICO DEL MODAL PARA EL FORMULARIO
-        // Le echamos el lazo al formulario padre, al cuadrito negro y al boton final usando el document.getElementById() de Javascript
-        // Uso de variable VAR para máxima clasicidad como pidió el tribunal 
+        // Le echamos el guante al formulario entero en una base js local de let var
         var formCont = document.getElementById('contact-form');
         var popModal = document.getElementById('mi-modal');
         var botCerrado = document.getElementById('close-modal');
 
-        // IF de validación extrema para evitar errores mortales NullPointerExceptions. (Si form NO está roto/vacío)
-        if(formCont != null) {
-            // Pillamos a fuego el evento interactivo de teclado enter/raton mandar formulario web ('submit')
+        // IF anti pánico! Como te cargues un trozo desde fuera de mis cosas y esto trate de leer la caja borrada vacía, ¡crash js muerto! Pues mi != null revienta base null checks
+        if (formCont != null) {
+            
+            // Vigilo como un águila si sueltas un envío submit al sistema...
             formCont.addEventListener('submit', function(e) {
-                // Previene que chrome envíe la URL a Narnia resfrescando la pestaña con F5 e interrumpiendo js
+                // Paradita a los pies del chrome, que no me des un pantallazo por red ni reinicios nativos absurdos..
                 e.preventDefault(); 
                 
-                // Sobraescribimos el CSS mediante código (JS mutando CSS en vivo). Pasando display a Flex, por lo que el rectángulo negro revive centrado sobre ti.
+                // Mútuo violentísimamente CSS sobreescribiendole su capa base invisible (display y flex)... ¡Plop caja pop up asomada modo ninja visible a la vista visual screen html js base flex!
                 popModal.style.display = 'flex'; 
-                
-                // Vacía los campos que has rellenado (el correo, tu nombre, etc) para q sirva pa meter más
+                // A la porra lo que tenias! Que no guardo datos! Te paso una mopa brutal sobre el teclado input form!
                 formCont.reset(); 
             });
         }
 
-        // Validación null preventer
-        if(botCerrado != null) {
-            // Función simple: Si haces un clic simple encima de la cruz
-            botCerrado.onclick = function() {
-                // Ocultamiento forzoso. La capa negra desaparece de pantalla, devolviendo utilidad.
-                popModal.style.display = 'none'; 
+        if (botCerrado != null) {
+            
+            botCerrado.onclick = function() { // Click click en cerrar
+                popModal.style.display = 'none'; // Vuelta directa con un display null ninja shadowrealm invisible a otra vida base...
             };
         }
     </script>

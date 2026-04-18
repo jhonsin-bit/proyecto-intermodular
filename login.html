@@ -1,96 +1,85 @@
-<!-- Declaración del tipo de documento HTML5 -->
+<!-- Lo básico en cualquier proyecto web. Declaramos qué versión de html estamos usando. -->
 <!DOCTYPE html>
-<!-- Etiqueta html principal con idioma español -->
+<!-- En lang declaramos 'es' porque la web principal es española -->
 <html lang="es">
 <head>
-    <!-- Configuración para leer tildes y ñ (UTF-8) -->
+    <!-- Configuración para leer acentos y símbolos sin que salgan símbolos raros, clave para el español -->
     <meta charset="UTF-8">
-    <!-- Viewport para que la web se adapte a las pantallas de móviles -->
+    <!-- Super importante para que el móvil no nos rompa la vista de la web, ajustando el contenido a su pantallita táctil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título que se muestra en la pestaña del navegador -->
+    <!-- Este es el título que lees arriba en las pestañas de chrome -->
     <title>Acceso del Sistema - EcoDigital Audit</title>
-    <!-- Importamos la fuente o tipo de letra 'Inter' desde Google -->
+    <!-- Tráfico externo llamando a las google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Enlazamos nuestra hoja de estilos externa -->
+    <!-- Llamando a nuestro mega archivo de estética css que configuramos de antes -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <!-- HEADER: Cabecera superior que usamos de menú -->
+    <!-- Aquí armo el Header, que es básicamente el menú de arriba. Le doy mi clase .navbar para el efecto cristal del css -->
     <header class="navbar">
-        <!-- DIV para guardar y agrupar el texto del logo -->
+        <!-- Bloquecito contenedor para colocar nuestro logo apartado a la izquierda -->
         <div class="logo-container">
-            <!-- Enlace del logotipo que te devuelve siempre a la página principal (Inicio) -->
             <a href="index.html" class="logo-text">EcoDigital Audit</a>
         </div>
-        <!-- NAV: Etiqueta semántica para definir un grupo de enlaces de navegación -->
+        <!-- Un clásico nav con su 'lista' (ul) para separar todos los botones que llevan a otras partes de la página -->
         <nav>
-            <!-- UL: Lista desordenada (los típicos puntos de toda la vida) -->
             <ul class="nav-links">
-                <!-- LI: Elemento de la lista que lleva al inicio -->
+                <!-- Usando li e hiperenlaces (a href) para mapear todo nuestro index de grado -->
                 <li><a href="index.html">Inicio</a></li>
-                <!-- LI: Elemento que lleva a la página de misión -->
                 <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
-                <!-- LI: Elemento hacia las sugerencias -->
                 <li><a href="sugerencias.html">Sugerencias</a></li>
-                <!-- LI: Elemento de contacto -->
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <!-- DIV para aislar el botón de la derecha del todo -->
+        <!-- Una caja de la derecha reservada por si hay clicks o cuentas abiertas -->
         <div class="nav-actions">
-            <!-- Botón de Iniciar Sesión; ya estamos en ella pero sirve por si acaso. -->
+            <!-- Botoncito coloreado de redirigida a Login. Usamos las clases preestablecidas de btn-primary -->
             <a href="login.html" class="btn btn-primary">Acceder</a>
         </div>
     </header>
 
-    <!-- MAIN: El contenedor principal del contenido de la página -->
-    <!-- Usamos la clase login-main para centrar todo en la pantalla verticalmente -->
+    <!-- La caja main gigante sirve para aislar tu parte real y de lectura del resto de basura base -->
+    <!-- login-main es una clase mía del css para tirar todo al medio exacto en display flex central vertical -->
     <main class="login-main">
-        <!-- DIV cuadrado blanco flotante con sombras gracias a 'card-container'. Lo limitamos a tamaño 400. -->
+        <!-- Contenedor general en blanco, como formato tarjeta de visita max-w-400 para que se quede cuadradita y pequeña y no un churro estirado horizontal -->
         <div class="card-container max-w-400 reveal login-card">
-            <!-- H2: Título secundario que coronará el formulario de entrada -->
             <h2 class="text-center text-primary mb-2">Iniciar Sesión</h2>
             
-            <!-- FORMULARIO con un id asignado 'login-form' para que nuestro JS lo atrape luego -->
+            <!-- Aquí el bloque rey: el formulario html con una id. No usamos target php ni method = POST porque es puro local js front -->
             <form id="login-form">
-                <!-- DIV de grupo de formulario para encasillar el primer campo de input -->
+                
+                <!-- Un empaquetado div simplemente para dar un margin-bottom en un grupito a la etiqueta label y al input sin enloquecer -->
                 <div class="form-group">
-                    <!-- Etiqueta visual para que el usuario sepa qué escribir, asociada por el atribto 'for' -->
                     <label for="email">Credencial ID (Email)</label>
-                    <!-- Input de tipo email que bloqueamos para que el navegador no te sugiera historial (autocomplete=off) -->
                     <input type="email" id="email" class="form-control" autocomplete="off" required>
                 </div>
                 
-                <!-- DIV de grupo para agrupar el segundo bloque semántico (contraseña) -->
                 <div class="form-group">
-                    <!-- Etiqueta descriptiva para la contraseña -->
                     <label for="password">Password de Encriptación ISO</label>
-                    <!-- Input text enmascarado (para que salgan puntitos ocultando la contraseña real) -->
+                    <!-- Type=password lo que hace base es cubrirte tus letritas por bolitas de negro o estrellitas en mac por puro visual -->
                     <input type="password" id="password" class="form-control" required>
                 </div>
                 
-                <!-- Párrafo que nace totalmente oculto 'display: none', que alertará de error de usuario incorrecto -->
+                <!-- Ojo, este paragrafo inicia desactivado de vista por clase en el css oculto error-msg, solo lo activo con true si desde JS me mandan un fallo de login! -->
                 <p id="error-msg" class="error-msg">Error: Acceso denegado, IP Registrada e incautada.</p>
                 
-                <!-- Botón clave para hacer SUBMIT, el Submit envía la información y arranca la maquinaria del click -->
+                <!-- Al poner tipo submit forzamos la recogida del botón verde general -->
                 <button type="submit" class="btn btn-primary w-100">Entrar al Sistema</button>
             </form>
         </div>
     </main>
 
-    <!-- FOOTER: Etiqueta de pie de base. Cierra la web por abajo. -->
+    <!-- El footer humilde por puro rigor de semántica HTML5 -->
     <footer>
-        <!-- DIV para el contenido en sí -->
         <div class="footer-content">
-            <!-- Párrafo simple de Copyright falso -->
             <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Importamos el script de comprobación general que carga el menú bonito superior -->
+    <!-- Aquí el script base de navs -->
     <script src="js/main.js"></script>
-    <!-- Importamos un script JS dedicado ÚNICAMENTE para que intermedie y proteja los datos de la contraseña de aquí arriba -->
+    <!-- Inyectamos nuestra escasa logica de falsado del input en index cargándola directamente del disco de nuestra carpeta javascript -->
     <script src="js/login.js"></script>
 </body>
 </html>

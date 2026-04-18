@@ -1,83 +1,62 @@
-<!-- Documento nativo en HTML5 puro -->
+<!-- Documento súper básico para la parte de feedback web. -->
 <!DOCTYPE html>
-<!-- Bloque padre, forzando la gramática a Español (es) -->
-<html lang="es">
+<html lang="es"> <!-- Seteamos que todas mis letritas aquí son en castellano -->
 <head>
-    <!-- Metadatos de codificación de letras castellanas UTF-8 -->
-    <meta charset="UTF-8">
-    <!-- El metadato vital que te exigirán para asegurar que la web se encuadre sola en un móvil -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- El título de indexado de Google, ubicado también en la chapita del navegador Edge/Chrome -->
+    <meta charset="UTF-8"> <!-- Trucazo contra carácteres feos raros nativos rotos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Base nivel Dios para que en el movil se vea estéticamente jugoso base responsiva celular... -->
     <title>Sugerencias del Personal - EcoDigital Audit</title>
-    <!-- Enganchamos la fuente limpia (san-serif) Google Inter Fonts -->
+    <!-- Cargamos google fonts Inter sin descargas lentas pesadisimas nativas -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Nuestro gigantesco CSS modular personalizado -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Ojo, me traigo el diseño del grandioso fichero central CSS maestro! -->
 </head>
 <body>
     
-    <!-- HEADER: Elemento semántico superior. Cabecera principal -->
+    <!-- Este es mi listón superior de cabecera -->
     <header class="navbar">
-        <!-- Contenedor del nombre de la marca agrupando propiedades de flexbox de css -->
         <div class="logo-container">
-            <!-- Ancla a la home (logo cliqueable) -->
-            <a href="index.html" class="logo-text">EcoDigital Audit</a>
+            <a href="index.html" class="logo-text">EcoDigital Audit</a> <!-- Te devuelvo a casita por defecto! -->
         </div>
-        <!-- Contenedor semántico obligatorio en grado de IT para albergar rutas internas de menú <nav> -->
+        
         <nav>
-            <!-- UL: Lista sin puntitos para meter menú en base a flex gap alineados horizontalmente -->
-            <ul class="nav-links">
-                <!-- Links de cada rama estructural de nuestro proyecto modular -->
+            <ul class="nav-links"> <!-- Listita molona que separa mis botones superiores puros HTML links <a>... -->
                 <li><a href="index.html">Inicio</a></li>
-                <!-- Donde descansa el temario de Empresa (IPE) y Metodologías Scrum -->
                 <li><a href="sobre_nosotros.html">Misión y Visión</a></li>
-                <!-- Esta misma página estática -->
                 <li><a href="sugerencias.html">Sugerencias</a></li>
-                <!-- Portal legal de formulario de incidencias de contactos base -->
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <!-- Englobador para encasillar botones perdidos y tirarlos al rincón derecho del navbar -->
+        
         <div class="nav-actions">
-            <!-- Botón verde inmaculado hacia el simulador interactivo de login -->
+            <!-- Botoncillo de Login tirado a la esquina opuesta derecha con puro flex... -->
             <a href="login.html" class="btn btn-primary">Acceder</a>
         </div>
     </header>
 
-    <!-- MAIN: Encapsulador madre de contenido del cuerpo (para separar semánticamente el menu, el texto importante y el footer) -->
     <main>
-        <!-- Un rectángulo acartonado grueso de max. 800 pixeles. Se desvanece de abajo a arriba gracias al .reveal CSS keyframe animado nativo -->
+        <!-- Tarjetón gordo opaco blanco que va cargando efecto flotando p'arriba desde que apareces visual screen (reveal js hook!).... -->
         <div class="card-container max-w-800 reveal">
-            <!-- Cabecera H2 interna -->
+            <!-- Cabecera titular simple... -->
             <h2 class="text-center text-primary mb-2">Buzón de Sugerencias Ágil</h2>
-            <!-- Descripción gris difuminada informando de la temática del portal test-app -->
             <p class="text-center text-muted mb-2">Buscamos crecer creando una comunidad global y diseñar parches basándonos en tu experiencia testeando como administrador esta app.</p>
             
-            <!-- EXPANSIÓN VISUAL: MINI BLOQUE LISTADO DE AYUDA ACERCA DE LAS SUGERENCIAS BUSCADAS PARA DARLE MATICES REALES A LA APP DE PRUEBAS -->
-            <!-- Div que actúa de cuadradito contenedor auxiliar para emular 'consejos'. Lo pintamos de gris (panel-bg) y lo bordeamos -->
+            <!-- Aquí abro una cajita gris base separadora visual panel-bg para listar la morralla extra informando de qué cojones de feedback queremos exactamente local del profe... -->
             <div class="content-section mb-2 sug-panel-bordered panel-bg">
-                <!-- Título terciario más peque oscuro -->
                 <h4 class="sug-title">Listado de "Feedback" u opiniones que nos son valiosos:</h4>
-                <!-- UL englobador de guiones puntuales de feedback -->
                 <ul class="text-muted sug-list">
-                    <!-- Li 1: List item descriptivo extra -->
                     <li>Ideas que mejoren las reglas de usabilidad estética o la Interfaz Visual (UX/UI) actual que navegamos.</li>
-                    <!-- Li 2 -->
                     <li>Denuncias de algún bug tecnológico o de programación en Javascript o deformidades de adaptacion CSS al navegar en Móvil.</li>
-                    <!-- Li 3 -->
                     <li>Demandas de herramientas extras ecológicas para medir parámetros nuevos en las PYMES.</li>
                 </ul>
             </div>
             
-            <!-- FORMULARIO con id vital sug-form (Lo leemos desde JS para crear la interacción virtual falseada exitosa) -->
+            <!-- Y aquí el formulario gordo, lo nombro con ID sug-form para que en cuanto alguien toque enter pam, lo cazo con javascript... -->
             <form id="sug-form" action="#" method="get">
                 
-                <!-- Separador de campo del formulario para marginar abajo un poco a saco -->
+                <!-- Separador comodísimo visual para meter un label con un salto base line a su input abajo -->
                 <div class="form-group">
-                    <!-- Texto de indicación que va por etiqueta propia <label> para SEO -->
                     <label for="asunto">Tema de la Sugerencia</label>
+                    <!-- Y me pego aquí un select rancio de los de toda la vida nativo de html form select listado para rellenar required para q no nos pasen cosas rotas en vacio. -->
                     <select id="asunto" class="form-control" required>
-                        <!-- Selector HTML puro estilo clásico. (Desplegable) -->
                         <option value="">Selecciona un área de la aplicación...</option>
                         <option value="ui">Interfaz Visual (Mejoras estéticas)</option>
                         <option value="ux">Usabilidad y navegación general</option>
@@ -86,80 +65,71 @@
                     </select>
                 </div>
                 
-                <!-- División de Textarea larga para escribir ladrillos descriptivos -->
+                <!-- El bloque gordo multilínea expandible infinito (Caja de texto base textarea!)-->
                 <div class="form-group">
                     <label for="mensaje_sug">¿Qué nos propones cambiar o arreglar?</label>
-                    <!-- Textarea crea una megacaja expandible que hereda .form-control del CSS y 4 filas por defecto en HTML puro básico sin frameworkings -->
                     <textarea id="mensaje_sug" rows="4" class="form-control" required placeholder="Escribe al detalle tu consejo constructivo para la plataforma..."></textarea>
                 </div>
                 
-                <!-- División especializada para inyectar una pequeña checkbox legal intermodular. -->
+                <!-- Un chechbox pequeñín para asustar fingiendo legalidad -->
                 <div class="form-group">
                     <label class="checkbox-lbl">
-                        <!-- Input de cuadradito (checkbox). Requerido con la orden mágica 'required' nativa de HMTL validación sin esfuerzo JS -->
                         <input type="checkbox" required> Comprendo que este buzón es para la fase intermodular y cedo mis derechos de feedback.
                     </label>
                 </div>
                 
-                <!-- Botón de submit que engulle y empuja el paquete para desencadenar el addeventlistener del JS final -->
-                <!-- Clase .w-100 es del style css puramente forjando 100% el ancho del botón -->
+                <!-- El super hiper botón enviante... -->
                 <button type="submit" class="btn btn-primary w-100">Mandar Feedback</button>
             </form>
         </div>
     </main>
 
-    <!-- EL MODAL (CAJITA WINDOWS CHULA DE ÉXITO) -->
-    <!-- Este panel existe en el HTML desde el milisegundo número 1 pero está invisible en display:none en CSS. Pura trampa clásica! -->
+    <!-- EL TRAMPÓN MAGISTRAL: Una pantalla negra oculta con magia display none. Está ahí pero es un ninja base html nativo! -->
     <div id="mi-modal" class="modal-overlay">
-        <!-- La caja gruesa blanca sobre flotando que se anima botando de opacidad 0 a 1 -->
         <div class="modal-content">
-            <!-- Letronte verde confirmando -->
             <h3 class="text-primary mb-2 modal-title">¡Enviado con Éxito!</h3>
-            <!-- Texto aclaratorio simulado -->
             <p class="text-muted mb-2">Hemos recibido tu información y la procesaremos a la brevedad posible.</p>
-            <!-- Botón interno para dar OK y esconder el marco fantasma otra vez al limbo -->
+            <!-- Este pequeño bastardo tiene una id brutal (close-modal) para matarlo con js si le toco -->
             <button class="btn btn-primary" id="close-modal">Aceptar y Continuar</button>
         </div>
     </div>
 
-    <!-- EL FOOTER -->
-    <!-- Etiqueta semántica de cierre inferior de contenido con derechos libres de licencia local corporativa base -->
+    <!-- Píé de página clasíco cutrillo aburrido -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 EcoDigital Audit. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Carga del Main script superior que revisa sesiones de navbar y logout variables -->
+    <!-- Mi navbar base cargándose. -->
     <script src="js/main.js"></script>
     
-    <!-- Script de Inyección Local de Javascript solo para esta vista concreta de Sugerencias -->
+    <!-- Ojo, este es un bloque gordo en inyectado online directo al html sin sacarlo de fichero externo solo específico para atrapar el modal falso pop up. -->
     <script>
-        // EL MOTOR LÓGICO DEL MODAL PARA EL FORMULARIO
-        // Definidor 'var' clásico Javascript atrapando elementos por identificador ID
+        // Cazamos al vuelo 3 víctimas: El Formulario grande, la ventana negra que nos hace oscurecer todo (modal), y el botón "Aceptar y Continuar"
         var formSug = document.getElementById('sug-form');
         var popModal = document.getElementById('mi-modal');
         var botCerrado = document.getElementById('close-modal');
 
-        // Seguridad preventiva de JS: Evitar colapso asegurando que el identificador existe en pantalla en este instante temporal.
-        if(formSug != null) {
-            // Cazamos al 'vuelo' el evento "submit" (Botón enter o Enviar clickeado sobre nuestro forulario de HTML).
+        // Protegemos a los profes. Si de casualidad hay algo nulo borrado en la caja tonta.. le decimos a JS ni leas esto que te crasheas!
+        if (formSug != null) {
+            
+            // Le encasqueto un espía "Escucha, si este tío me da Send a Submit form..."
             formSug.addEventListener('submit', function(e) {
-                // Bloqueamos el viaje de red del html básico que haría parpadear locamente actualizando de nuevo la página y fastidiando el entorno
+                // Paro al puñetero Chrome de refrescarme loco la página F5 destruyendo mis maravillas!
                 e.preventDefault(); 
                 
-                // Mútuamos de manera visual por DOM Javascript el estilo bloqueado "display:none" por "flex", haciéndolo materializarse al medio.
+                // Mútuo violentamente la estética CSS de none a display puro flexible. ¡PUM! Pantallazo negro a pantalla completa base sobre el main content!
                 popModal.style.display = 'flex'; 
-                // Usamos la API reset nativa de DOM para arrasar y barrer al cero los datos introducidos con teclado reseteando el formulario total
+                // Y ya que nos pusimos a ello... limpio con un reset todo lo que habias escrito a mano que me da igual y no lo subo a BD local html js puro false forms
                 formSug.reset(); 
             });
         }
 
-        // Si existe el botón cerrar equis modal en la app
-        if(botCerrado != null) {
-            // Definimos el Onclick a fuego local directo
+        // ¿Y si toco al boton cerrar de salir de la caja pop up windows modal extra...?
+        if (botCerrado != null) {
             botCerrado.onclick = function() {
-                // Lo devolvemos a las sombras "display:none"
+                // Sencillo, vuelvo a enterrarla con display = none ninja base y listo. Falsa interaccion lograda chulísima profe!
                 popModal.style.display = 'none'; 
             };
         }
